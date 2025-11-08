@@ -1,0 +1,16 @@
+{
+    "mimic_waveform_path": "/media/jaadoo/sexy/mimic_data",
+    "mimic_clinical_path": "/media/jaadoo/sexy/physionet.org/files/mimiciii/1.4",
+    "output_dir": "production_medium",
+    "max_patients": 100,
+    "max_segments_per_patient": 1000,
+    "batch_size": 48,
+    "learning_rate": 3e-4,
+    "num_epochs": 25,
+    "embedding_dim": 256,
+    "hidden_dims": [64, 128, 256, 512],
+    "temperature": 0.1,
+    "chunk_size": 500,
+    "num_workers": 4,
+    "save_frequency": 5
+}

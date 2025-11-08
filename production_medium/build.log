@@ -1,0 +1,1565 @@
+2025-11-08 21:18:07,884 - INFO - Building production dataset...
+2025-11-08 21:18:07,884 - INFO - Loading clinical data...
+2025-11-08 21:18:08,087 - INFO - Loaded clinical data: 46520 patients, 651047 diagnoses
+2025-11-08 21:18:08,087 - INFO - Scanning for patients with waveform data...
+2025-11-08 21:18:08,253 - INFO - Found 100 patients with 21.3GB total data
+2025-11-08 21:18:08,254 - INFO - Processing chunk 1/1
+Building dataset...
+Processing chunk:   0%|          | 0/100 [00:00<?, ?it/s]Processing chunk:   1%|          | 1/100 [00:03<05:00,  3.04s/it]Processing chunk:   2%|▏         | 2/100 [00:18<16:30, 10.11s/it]Processing chunk:   3%|▎         | 3/100 [00:19<09:38,  5.97s/it]Processing chunk:   4%|▍         | 4/100 [00:21<07:22,  4.61s/it]Processing chunk:   5%|▌         | 5/100 [00:22<05:03,  3.19s/it]Processing chunk:   6%|▌         | 6/100 [00:23<04:02,  2.58s/it]Processing chunk:   7%|▋         | 7/100 [00:24<03:04,  1.99s/it]Processing chunk:   8%|▊         | 8/100 [00:26<03:04,  2.00s/it]Processing chunk:   9%|▉         | 9/100 [00:28<02:59,  1.97s/it]Processing chunk:  10%|█         | 10/100 [00:30<03:09,  2.11s/it]Processing chunk:  11%|█         | 11/100 [00:31<02:23,  1.62s/it]Processing chunk:  12%|█▏        | 12/100 [00:32<02:22,  1.62s/it]Processing chunk:  13%|█▎        | 13/100 [00:34<02:16,  1.57s/it]Processing chunk:  14%|█▍        | 14/100 [00:34<01:38,  1.15s/it]Processing chunk:  15%|█▌        | 15/100 [00:37<02:27,  1.73s/it]Processing chunk:  16%|█▌        | 16/100 [00:46<05:15,  3.76s/it]Processing chunk:  17%|█▋        | 17/100 [00:49<05:03,  3.66s/it]Processing chunk:  18%|█▊        | 18/100 [00:52<04:38,  3.39s/it]Processing chunk:  19%|█▉        | 19/100 [00:56<04:45,  3.52s/it]Processing chunk:  20%|██        | 20/100 [01:00<04:59,  3.74s/it]Processing chunk:  21%|██        | 21/100 [01:01<03:42,  2.82s/it]Processing chunk:  22%|██▏       | 22/100 [01:02<03:09,  2.43s/it]Processing chunk:  23%|██▎       | 23/100 [01:02<02:14,  1.75s/it]Successfully read using method 1
+Read method 1 failed: [Errno 2] No such file or directory: '/media/jaadoo/sexy/mimic_data/p00/p005382/3385089_0018.hea'
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: [Errno 2] No such file or directory: '/media/jaadoo/sexy/mimic_data/p01/p011342/3287799_0013.hea'
+Successfully read using method 3
+Read method 1 failed: [Errno 2] No such file or directory: '/media/jaadoo/sexy/mimic_data/p01/p011342/3287799_0014.hea'
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: [Errno 2] No such file or directory: '/media/jaadoo/sexy/mimic_data/p01/p016063/3125931_0006.hea'
+Successfully read using method 3
+Read method 1 failed: [Errno 2] No such file or directory: '/media/jaadoo/sexy/mimic_data/p01/p016063/3125931_0008.hea'
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: [Errno 2] No such file or directory: '/media/jaadoo/sexy/mimic_data/p01/p015298/3249888_0001.hea'
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: [Errno 2] No such file or directory: '/media/jaadoo/sexy/mimic_data/p00/p006917/3032247_0001.hea'
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: [Errno 2] No such file or directory: '/media/jaadoo/sexy/mimic_data/p00/p006917/3323489_0037.hea'
+Successfully read using method 3
+Read method 1 failed: Samples were not loaded correctly
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1Processing chunk:  24%|██▍       | 24/100 [01:07<03:15,  2.57s/it]Processing chunk:  25%|██▌       | 25/100 [01:08<02:37,  2.10s/it]Processing chunk:  26%|██▌       | 26/100 [01:09<02:08,  1.74s/it]Processing chunk:  27%|██▋       | 27/100 [01:10<02:02,  1.68s/it]Processing chunk:  28%|██▊       | 28/100 [01:11<01:41,  1.41s/it]Processing chunk:  29%|██▉       | 29/100 [01:16<03:03,  2.58s/it]Processing chunk:  30%|███       | 30/100 [01:17<02:19,  1.99s/it]Processing chunk:  31%|███       | 31/100 [01:19<02:11,  1.90s/it]Processing chunk:  32%|███▏      | 32/100 [01:19<01:46,  1.56s/it]Processing chunk:  33%|███▎      | 33/100 [01:21<01:51,  1.66s/it]Processing chunk:  34%|███▍      | 34/100 [01:22<01:30,  1.38s/it]Processing chunk:  35%|███▌      | 35/100 [01:23<01:29,  1.37s/it]Processing chunk:  36%|███▌      | 36/100 [01:24<01:09,  1.08s/it]Processing chunk:  37%|███▋      | 37/100 [01:24<00:58,  1.08it/s]Processing chunk:  38%|███▊      | 38/100 [01:25<01:00,  1.03it/s]Processing chunk:  39%|███▉      | 39/100 [01:27<01:04,  1.07s/it]Processing chunk:  40%|████      | 40/100 [01:27<00:56,  1.06it/s]
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: cannot reshape array of size 2145521 into shape (4)
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: [Errno 2] No such file or directory: '/media/jaadoo/sexy/mimic_data/p01/p010595/3099108_0005.hea'
+Successfully read using method 3
+Read method 1 failed: [Errno 2] No such file or directory: '/media/jaadoo/sexy/mimic_data/p01/p010595/3099108_0006.hea'
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: cannot reshape array of size 4513606 into shape (6)
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: Samples were not loaded correctly
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: cannot reshape array of size 2981113 into shape (3)
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: [Errno 2] No such file or directory: '/media/jaadoo/sexy/mimic_data/p01/p015055/3712340_0064.hea'Processing chunk:  41%|████      | 41/100 [01:29<01:05,  1.10s/it]Processing chunk:  42%|████▏     | 42/100 [01:30<01:12,  1.25s/it]Processing chunk:  43%|████▎     | 43/100 [01:32<01:14,  1.31s/it]Processing chunk:  44%|████▍     | 44/100 [01:36<01:59,  2.13s/it]Processing chunk:  45%|████▌     | 45/100 [01:38<01:58,  2.15s/it]Processing chunk:  46%|████▌     | 46/100 [01:39<01:33,  1.74s/it]Processing chunk:  47%|████▋     | 47/100 [01:40<01:17,  1.46s/it]Processing chunk:  48%|████▊     | 48/100 [01:41<01:19,  1.53s/it]Processing chunk:  49%|████▉     | 49/100 [01:42<00:59,  1.17s/it]Processing chunk:  50%|█████     | 50/100 [01:42<00:48,  1.03it/s]Processing chunk:  51%|█████     | 51/100 [01:43<00:45,  1.07it/s]Processing chunk:  52%|█████▏    | 52/100 [01:43<00:37,  1.29it/s]Processing chunk:  53%|█████▎    | 53/100 [01:44<00:28,  1.65it/s]
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: [Errno 2] No such file or directory: '/media/jaadoo/sexy/mimic_data/p01/p015055/3712340_0069.hea'
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Read method 1 failed: [Errno 2] No such file or directory: '/media/jaadoo/sexy/mimic_data/p01/p015055/3712340_0077.hea'
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: cannot reshape array of size 9256178 into shape (3)
+Successfully read using method 3
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Read method 1 failed: cannot reshape array of size 343285 into shape (3)
+Successfully read using method 3
+Read method 1 failed: Samples were not loaded correctly
+Successfully read using method 3
+Read method 1 failed: cannot reshape array of size 933112 into shape (3)
+Successfully read using method 3
+Read method 1 failed: cannot reshape array of size 769268 into shape (3)
+Successfully read using method 3
+Successfully read using method 1
+Read method 1 failed: Samples were not loaded correctly
+Successfully read using method 3
+Read method 1 failed: cannot reshape array of size 1556110 into shape (3)
+Successfully read using method 3
+Successfully read using method 1
+Read method 1 failed: cannot reshape array of size 113909 into shape (3)
+Successfully read using method 3
+Read method 1 failed: cannot reshape array of size 490738 into shape (3)
+Successfully read using method 3
+Read method 1 failed: Samples were not loaded correctly
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: Samples were not loaded correctly
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: cannot reshape array of size 802034 into shape (3)
+Successfully read using method 3
+Read method 1 failed: Samples were not loaded correctly
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: cannot reshape array of size 802040 into shape (3)
+Successfully read using method 3
+Successfully read using method 1
+Read method 1 failed: cannot reshape array of size 933106 into shape (3)
+Successfully read using method 3
+Successfully read using method 1
+Read method 1 failed: cannot reshape array of size 638200 into shape (3)
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: cannot reshape array of size 1424632 into shape (3)
+Successfully read using method 3
+Read method 1 failed: Samples were not loaded correctly
+Successfully read using method 3
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: cannot reshape array of size 1195252 into shape (3)
+Successfully read using method 3
+Read method 1 failed: cannot reshape array of size 1670387 into shape (2)
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1Processing chunk:  54%|█████▍    | 54/100 [01:45<00:36,  1.27it/s]Processing chunk:  55%|█████▌    | 55/100 [01:46<00:37,  1.21it/s]Processing chunk:  56%|█████▌    | 56/100 [01:47<00:40,  1.08it/s]Processing chunk:  57%|█████▋    | 57/100 [01:48<00:46,  1.08s/it]Processing chunk:  58%|█████▊    | 58/100 [01:51<00:58,  1.39s/it]Processing chunk:  59%|█████▉    | 59/100 [01:51<00:50,  1.22s/it]
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: Samples were not loaded correctly
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Read method 1 failed: cannot reshape array of size 1228025 into shape (3)
+Successfully read using method 3
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Read method 1 failed: cannot reshape array of size 1375480 into shape (3)
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1Processing chunk:  60%|██████    | 60/100 [01:52<00:38,  1.04it/s]Processing chunk:  61%|██████    | 61/100 [01:52<00:31,  1.22it/s]Processing chunk:  62%|██████▏   | 62/100 [01:53<00:29,  1.31it/s]Processing chunk:  63%|██████▎   | 63/100 [01:53<00:25,  1.46it/s]Processing chunk:  64%|██████▍   | 64/100 [01:54<00:29,  1.23it/s]Processing chunk:  65%|██████▌   | 65/100 [01:55<00:24,  1.45it/s]Processing chunk:  66%|██████▌   | 66/100 [01:55<00:22,  1.49it/s]Processing chunk:  67%|██████▋   | 67/100 [01:56<00:20,  1.59it/s]Processing chunk:  68%|██████▊   | 68/100 [01:57<00:18,  1.69it/s]Processing chunk:  69%|██████▉   | 69/100 [01:57<00:15,  2.05it/s]Processing chunk:  70%|███████   | 70/100 [01:59<00:26,  1.13it/s]Processing chunk:  71%|███████   | 71/100 [01:59<00:23,  1.24it/s]Processing chunk:  72%|███████▏  | 72/100 [02:00<00:20,  1.34it/s]Processing chunk:  73%|███████▎  | 73/100 [02:00<00:17,  1.50it/s]Processing chunk:  74%|███████▍  | 74/100 [02:02<00:25,  1.01it/s]Processing chunk:  75%|███████▌  | 75/100 [02:03<00:22,  1.12it/s]Processing chunk:  76%|███████▌  | 76/100 [02:03<00:20,  1.18it/s]
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1Processing chunk:  77%|███████▋  | 77/100 [02:08<00:44,  1.94s/it]Processing chunk:  78%|███████▊  | 78/100 [02:09<00:36,  1.64s/it]Processing chunk:  79%|███████▉  | 79/100 [02:10<00:31,  1.50s/it]Processing chunk:  80%|████████  | 80/100 [02:11<00:24,  1.24s/it]Processing chunk:  81%|████████  | 81/100 [02:13<00:27,  1.43s/it]Processing chunk:  82%|████████▏ | 82/100 [02:13<00:20,  1.15s/it]Processing chunk:  83%|████████▎ | 83/100 [02:15<00:24,  1.42s/it]Processing chunk:  84%|████████▍ | 84/100 [02:15<00:17,  1.07s/it]Processing chunk:  85%|████████▌ | 85/100 [02:16<00:15,  1.01s/it]Processing chunk:  86%|████████▌ | 86/100 [02:17<00:13,  1.02it/s]Processing chunk:  87%|████████▋ | 87/100 [02:19<00:15,  1.22s/it]Processing chunk:  88%|████████▊ | 88/100 [02:20<00:12,  1.06s/it]Processing chunk:  89%|████████▉ | 89/100 [02:20<00:11,  1.01s/it]Processing chunk:  90%|█████████ | 90/100 [02:21<00:08,  1.24it/s]
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: cannot reshape array of size 3292998 into shape (5)
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: cannot reshape array of size 229191 into shape (5)
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: Samples were not loaded correctly
+Successfully read using method 3
+Successfully read using method 1
+Read method 1 failed: Samples were not loaded correctly
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: cannot reshape array of size 769273 into shape (3)
+Successfully read using method 3
+Successfully read using method 1
+Read method 1 failed: cannot reshape array of size 2047223 into shape (3)
+Successfully read using method 3
+Read method 1 failed: Samples were not loaded correctly
+Successfully read using method 3
+Read method 1 failed: Samples were not loaded correctly
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: cannot reshape array of size 326899 into shape (3)
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: cannot reshape array of size 1490164 into shape (3)
+Successfully read using method 3
+Read method 1 failed: cannot reshape array of size 2276600 into shape (3)
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: [Errno 2] No such file or directory: '/media/jaadoo/sexy/mimic_data/p00/p005369/3967367_0007.hea'
+Successfully read using method 3
+Successfully read using method 1Processing chunk:  91%|█████████ | 91/100 [02:21<00:05,  1.53it/s]Processing chunk:  92%|█████████▏| 92/100 [02:22<00:04,  1.67it/s]Processing chunk:  93%|█████████▎| 93/100 [02:23<00:05,  1.36it/s]Processing chunk:  94%|█████████▍| 94/100 [02:23<00:03,  1.72it/s]Processing chunk:  95%|█████████▌| 95/100 [02:23<00:02,  1.82it/s]Processing chunk:  96%|█████████▌| 96/100 [02:24<00:02,  1.94it/s]Processing chunk:  97%|█████████▋| 97/100 [02:24<00:01,  2.11it/s]Processing chunk:  98%|█████████▊| 98/100 [02:26<00:01,  1.24it/s]Processing chunk:  99%|█████████▉| 99/100 [02:26<00:00,  1.58it/s]Processing chunk: 100%|██████████| 100/100 [02:27<00:00,  1.58it/s]Processing chunk: 100%|██████████| 100/100 [02:27<00:00,  1.47s/it]
+2025-11-08 21:21:45,702 - INFO - Processed 100/100 patients, 66,432 segments
+2025-11-08 21:21:46,131 - INFO - Dataset saved: 66,432 segments from 100 patients
+
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: [Errno 2] No such file or directory: '/media/jaadoo/sexy/mimic_data/p00/p005369/3967367_0015.hea'
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: [Errno 2] No such file or directory: '/media/jaadoo/sexy/mimic_data/p01/p015964/3411130_0027.hea'
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: [Errno 2] No such file or directory: '/media/jaadoo/sexy/mimic_data/p01/p015964/3411130_0052.hea'
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Signal too short: 4 samples
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Read method 1 failed: [Errno 2] No such file or directory: '/media/jaadoo/sexy/mimic_data/p01/p015268/3549136_0006.hea'
+Successfully read using method 3
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1
+Successfully read using method 1

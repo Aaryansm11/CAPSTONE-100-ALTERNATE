@@ -1,0 +1,4 @@
+age,gender,mortality,has_stroke,has_arrhythmia,has_af,has_hypertension,has_diabetes,has_heart_failure,on_warfarin,on_aspirin,on_beta_blocker,on_amiodarone,total_diagnoses,total_medications,patient_id,category
+46,1,1,1,1,1,1,0,1,1,1,1,0,203,815,10814,stroke
+57,1,1,0,1,1,1,0,1,1,1,1,1,153,647,10774,arrhythmia
+16,1,0,0,0,0,0,0,0,0,1,1,0,2,66,10766,healthy
