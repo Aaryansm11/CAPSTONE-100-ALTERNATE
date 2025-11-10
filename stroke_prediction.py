@@ -515,16 +515,16 @@ def main():
     """Main stroke prediction pipeline"""
     print("🔬 STROKE RISK PREDICTION PIPELINE")
 
-    # Load data
-    data = np.load('/media/jaadoo/sexy/ecg ppg/integrated_dataset.npz', allow_pickle=True)
+    # Load data (using relative paths from production output)
+    data = np.load('production_medium/integrated_dataset.npz', allow_pickle=True)
     segments = data['segments']
     segment_metadata = data['segment_metadata']
 
     print(f"Loaded dataset: {segments.shape}")
 
     # Initialize feature extractor
-    model_path = '/media/jaadoo/sexy/ecg ppg/best_fixed_model.pth'
-    clustering_path = '/media/jaadoo/sexy/ecg ppg/simple_pattern_discovery/pattern_results.json'
+    model_path = 'production_medium/best_fixed_model.pth'
+    clustering_path = 'production_medium/simple_pattern_discovery/pattern_results.json'
 
     extractor = StrokeRiskFeatureExtractor(model_path, clustering_path)
 

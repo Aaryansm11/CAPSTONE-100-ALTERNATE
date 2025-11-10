@@ -32,10 +32,10 @@ class ProductionConfig:
     """Configuration for production training"""
 
     def __init__(self, config_path=None):
-        # Data paths
-        self.mimic_waveform_path = "/media/jaadoo/sexy/mimic_data"
-        self.mimic_clinical_path = "/media/jaadoo/sexy/physionet.org/files/mimiciii/1.4"
-        self.output_dir = "/media/jaadoo/sexy/ecg ppg/production"
+        # Data paths (will be overridden by config file)
+        self.mimic_waveform_path = "C:/MIMIC-III/waveform_data"
+        self.mimic_clinical_path = "C:/MIMIC-III/clinical_data/mimiciii/1.4"
+        self.output_dir = "production_medium"
 
         # Preprocessing parameters
         self.segment_length_sec = 10
@@ -178,6 +178,15 @@ class EfficientDatasetBuilder:
             usecols=['SUBJECT_ID', 'ICD9_CODE']
         )
 
+        # Load admissions for accurate age calculation
+        self.admissions_df = pd.read_csv(
+            f"{self.config.mimic_clinical_path}/ADMISSIONS.csv.gz",
+            usecols=['SUBJECT_ID', 'ADMITTIME']
+        )
+        # Get first admission per patient for age calculation
+        self.admissions_df['ADMITTIME'] = pd.to_datetime(self.admissions_df['ADMITTIME'])
+        self.first_admission = self.admissions_df.groupby('SUBJECT_ID')['ADMITTIME'].min().reset_index()
+
         self.logger.info(f"Loaded clinical data: {len(self.patients_df)} patients, {len(self.diagnoses_df)} diagnoses")
 
     def get_clinical_features(self, patient_id):
@@ -185,8 +194,21 @@ class EfficientDatasetBuilder:
         try:
             # Demographics
             patient_info = self.patients_df[self.patients_df['SUBJECT_ID'] == patient_id].iloc[0]
-            birth_year = int(patient_info['DOB'][:4])
-            age = 2025 - birth_year if birth_year <= 2020 else 2025 - birth_year + 100
+
+            # Calculate age properly using admission time
+            # MIMIC-III shifts all dates to future, but time differences are preserved
+            dob = pd.to_datetime(patient_info['DOB'])
+            admission_info = self.first_admission[self.first_admission['SUBJECT_ID'] == patient_id]
+
+            if len(admission_info) > 0:
+                admit_time = admission_info.iloc[0]['ADMITTIME']
+                # Age = time difference in years (accounts for MIMIC-III date shifting)
+                age = (admit_time - dob).days / 365.25
+                # MIMIC-III marks patients >89 as 300+, cap them at 91.4 (median of >89)
+                if age > 200:  # Clearly a shifted elderly patient
+                    age = 91.4
+            else:
+                age = 65  # Default if no admission found
 
             # Diagnoses
             patient_diagnoses = self.diagnoses_df[self.diagnoses_df['SUBJECT_ID'] == patient_id]
@@ -200,17 +222,17 @@ class EfficientDatasetBuilder:
             has_arrhythmia = any(code[:3] in arrhythmia_codes for code in diagnosis_codes)
 
             return {
-                'age': min(max(age, 0), 120),  # Reasonable bounds
+                'age': round(min(max(age, 0), 120), 1),  # Reasonable bounds
                 'gender': 1 if patient_info['GENDER'] == 'M' else 0,
                 'mortality': int(patient_info['EXPIRE_FLAG']),
                 'has_stroke': int(has_stroke),
                 'has_arrhythmia': int(has_arrhythmia),
                 'num_diagnoses': len(patient_diagnoses)
             }
-        except:
+        except Exception as e:
             # Default values if patient not found
             return {
-                'age': 50, 'gender': 0, 'mortality': 0,
+                'age': 65.0, 'gender': 0, 'mortality': 0,
                 'has_stroke': 0, 'has_arrhythmia': 0, 'num_diagnoses': 0
             }
 
@@ -352,32 +374,27 @@ class EfficientDatasetBuilder:
         return total_segments, total_patients_processed
 
 class ProductionDataset(Dataset):
-    """Production dataset that loads from HDF5"""
+    """Production dataset that loads all data into RAM for multiprocessing"""
 
     def __init__(self, h5_path, metadata_path, train=True):
-        self.h5_path = h5_path
         self.train = train
 
         # Load metadata
         with open(metadata_path, 'rb') as f:
             self.metadata = pickle.load(f)
 
-        # Keep HDF5 file handle
-        self.h5f = None
-        self._open_h5()
-
-    def _open_h5(self):
-        if self.h5f is None or not self.h5f:
-            self.h5f = h5py.File(self.h5_path, 'r')
+        # Load ALL segments into RAM at once (avoids HDF5 pickling issues on Windows)
+        print(f"Loading {len(self.metadata):,} segments into RAM...")
+        with h5py.File(h5_path, 'r') as h5f:
+            self.segments = h5f['segments'][:].astype(np.float32)
+        print(f"✓ Loaded {self.segments.shape[0]:,} segments ({self.segments.nbytes / 1e9:.2f}GB)")
 
     def __len__(self):
         return len(self.metadata)
 
     def __getitem__(self, idx):
-        self._open_h5()
-
-        # Load segment
-        segment = self.h5f['segments'][idx].astype(np.float32)
+        # Load segment from RAM (not HDF5)
+        segment = self.segments[idx]
         metadata = self.metadata[idx]
 
         # Convert to tensor and transpose
@@ -394,10 +411,6 @@ class ProductionDataset(Dataset):
             'has_stroke': metadata['has_stroke'],
             'has_arrhythmia': metadata['has_arrhythmia']
         }
-
-    def __del__(self):
-        if hasattr(self, 'h5f') and self.h5f:
-            self.h5f.close()
 
 class ProductionTrainer:
     """Production trainer with checkpointing and monitoring"""
@@ -561,7 +574,7 @@ def main():
     parser.add_argument('--build-dataset', action='store_true', help='Build dataset first')
     parser.add_argument('--train-only', action='store_true', help='Train only (dataset exists)')
     parser.add_argument('--max-patients', type=int, help='Maximum patients to process')
-    parser.add_argument('--output-dir', type=str, default='/media/jaadoo/sexy/ecg ppg/production')
+    parser.add_argument('--output-dir', type=str, default='production_medium')
 
     args = parser.parse_args()
 

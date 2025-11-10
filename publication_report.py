@@ -18,7 +18,7 @@ warnings.filterwarnings('ignore')
 class PublicationReportGenerator:
     """Generate publication-ready analysis reports"""
 
-    def __init__(self, project_dir='/media/jaadoo/sexy/ecg ppg', output_dir='publication_report'):
+    def __init__(self, project_dir='.', output_dir='publication_report'):
         self.project_dir = Path(project_dir)
         self.output_dir = Path(project_dir) / output_dir
         self.output_dir.mkdir(exist_ok=True)

@@ -418,15 +418,15 @@ def main():
     """Main pattern discovery function"""
     print("🔍 SIMPLE PATTERN DISCOVERY")
 
-    # Load integrated dataset
-    data = np.load('/media/jaadoo/sexy/ecg ppg/integrated_dataset.npz', allow_pickle=True)
+    # Load integrated dataset (using relative paths from production output)
+    data = np.load('production_medium/integrated_dataset.npz', allow_pickle=True)
     segments = data['segments']
     segment_metadata = data['segment_metadata']
 
     print(f"Loaded dataset: {segments.shape}")
 
     # Load trained model
-    model_path = '/media/jaadoo/sexy/ecg ppg/best_fixed_model.pth'
+    model_path = 'production_medium/best_fixed_model.pth'
 
     # Extract embeddings
     extractor = SimpleEmbeddingExtractor(model_path)
