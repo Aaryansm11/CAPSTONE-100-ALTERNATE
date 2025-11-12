@@ -1,0 +1,232 @@
+2025-11-10 21:01:47,273 - INFO - Loading datasets...
+2025-11-10 21:01:47,310 - INFO - Loading 133,157 segments into RAM...
+2025-11-10 21:01:59,279 - INFO - ✓ Loaded 133,157 segments (5.33GB)
+2025-11-10 21:01:59,316 - INFO - Loading 133,157 segments into RAM...
+2025-11-10 21:02:11,197 - INFO - ✓ Loaded 133,157 segments (5.33GB)
+2025-11-10 21:02:11,508 - INFO - Train: 106,525 segments | Val: 26,632 segments
+2025-11-10 21:02:15,237 - INFO - Model: 2,155,392 parameters
+2025-11-10 21:02:15,237 - INFO - Device: cuda
+2025-11-10 21:02:15,237 - INFO - Conservative settings: dropout=0.2, weight_decay=0.05, early_stopping=True
+2025-11-10 21:02:15,237 - INFO - Starting conservative training for 25 epochs
+2025-11-10 21:03:40,584 - INFO - Initializing datasets...
+2025-11-10 21:03:40,622 - INFO - Dataset initialized: 133,157 segments (lazy loading)
+2025-11-10 21:03:40,627 - INFO - Train: 106,525 segments | Val: 26,632 segments
+2025-11-10 21:03:40,627 - INFO - Using 4 workers for data loading
+2025-11-10 21:03:41,449 - INFO - Model: 2,155,392 parameters
+2025-11-10 21:03:41,449 - INFO - Device: cuda
+2025-11-10 21:03:41,449 - INFO - Conservative settings: dropout=0.2, weight_decay=0.05, early_stopping=True
+2025-11-10 21:03:41,449 - INFO - Starting conservative training for 25 epochs
+2025-11-10 21:15:16,070 - INFO - Initializing datasets...
+2025-11-10 21:15:16,108 - INFO - Dataset initialized: 133,157 segments (lazy loading)
+2025-11-10 21:15:16,113 - INFO - Train: 106,525 segments | Val: 26,632 segments
+2025-11-10 21:15:16,113 - INFO - Using 8 workers for data loading
+2025-11-10 21:15:16,921 - INFO - Model: 2,155,392 parameters
+2025-11-10 21:15:16,921 - INFO - Device: cuda
+2025-11-10 21:15:16,921 - INFO - Conservative settings: dropout=0.2, weight_decay=0.05, early_stopping=True
+2025-11-10 21:15:16,921 - INFO - Starting conservative training for 25 epochs
+2025-11-10 21:19:05,409 - INFO - Initializing datasets...
+2025-11-10 21:19:05,447 - INFO - Dataset initialized: 133,157 segments (lazy loading)
+2025-11-10 21:19:05,452 - INFO - Train: 106,525 segments | Val: 26,632 segments
+2025-11-10 21:19:05,452 - INFO - Using 6 workers for data loading
+2025-11-10 21:19:06,244 - INFO - Model: 2,155,392 parameters
+2025-11-10 21:19:06,244 - INFO - Device: cuda
+2025-11-10 21:19:06,244 - INFO - Conservative settings: dropout=0.2, weight_decay=0.05, early_stopping=True
+2025-11-10 21:19:06,244 - INFO - Starting conservative training for 25 epochs
+2025-11-10 21:21:23,772 - INFO - Initializing datasets...
+2025-11-10 21:21:23,808 - INFO - Dataset initialized: 133,157 segments (lazy loading)
+2025-11-10 21:21:23,813 - INFO - Train: 106,525 segments | Val: 26,632 segments
+2025-11-10 21:21:23,813 - INFO - Using 0 workers for data loading (single-process mode)
+2025-11-10 21:21:24,579 - INFO - Model: 2,155,392 parameters
+2025-11-10 21:21:24,580 - INFO - Device: cuda
+2025-11-10 21:21:24,580 - INFO - Conservative settings: dropout=0.2, weight_decay=0.05, early_stopping=True
+2025-11-10 21:21:24,580 - INFO - Starting conservative training for 25 epochs
+2025-11-10 21:30:59,635 - INFO - ============================================================
+2025-11-10 21:30:59,635 - INFO - RTX 4080 OPTIMIZED CONFIGURATION
+2025-11-10 21:30:59,635 - INFO - ============================================================
+2025-11-10 21:30:59,635 - INFO - Base batch size: 256
+2025-11-10 21:30:59,635 - INFO - Accumulation steps: 4
+2025-11-10 21:30:59,635 - INFO - Effective batch size: 1024
+2025-11-10 21:30:59,635 - INFO - Mixed precision (AMP): True
+2025-11-10 21:30:59,635 - INFO - ============================================================
+2025-11-10 21:30:59,635 - INFO - Initializing datasets...
+2025-11-10 21:30:59,673 - INFO - Dataset initialized: 133,157 segments (optimized for multi-worker loading)
+2025-11-10 21:30:59,679 - INFO - Train: 106,525 segments | Val: 26,632 segments
+2025-11-10 21:30:59,679 - INFO - Using 6 workers for data loading (RTX 4080 optimized)
+2025-11-10 21:31:00,456 - INFO - Model: 2,155,392 parameters
+2025-11-10 21:31:00,456 - INFO - Device: cuda
+2025-11-10 21:31:00,456 - INFO - Conservative settings: dropout=0.2, weight_decay=0.05, early_stopping=True
+2025-11-10 21:31:00,456 - INFO - RTX 4080 optimization: AMP=True, accumulation_steps=4, effective_batch_size=1024
+2025-11-10 21:31:00,456 - INFO - GPU: NVIDIA GeForce RTX 4080
+2025-11-10 21:31:00,456 - INFO - GPU Memory: 15.99GB
+2025-11-10 21:31:00,456 - INFO - Starting conservative training for 25 epochs
+2025-11-10 21:39:59,131 - INFO - Initializing datasets...
+2025-11-10 21:39:59,168 - INFO - Dataset initialized: 133,157 segments (lazy loading)
+2025-11-10 21:39:59,173 - INFO - Train: 106,525 segments | Val: 26,632 segments
+2025-11-10 21:39:59,173 - INFO - Using 0 workers for data loading (single-process mode)
+2025-11-10 21:39:59,938 - INFO - Model: 2,155,392 parameters
+2025-11-10 21:39:59,938 - INFO - Device: cuda
+2025-11-10 21:39:59,938 - INFO - Conservative settings: dropout=0.2, weight_decay=0.05, early_stopping=True
+2025-11-10 21:39:59,938 - INFO - Starting conservative training for 25 epochs
+2025-11-10 21:43:29,072 - INFO - ============================================================
+2025-11-10 21:43:29,072 - INFO - RTX 4080 OPTIMIZED CONFIGURATION
+2025-11-10 21:43:29,072 - INFO - ============================================================
+2025-11-10 21:43:29,072 - INFO - Base batch size: 256
+2025-11-10 21:43:29,072 - INFO - Accumulation steps: 4
+2025-11-10 21:43:29,073 - INFO - Effective batch size: 1024
+2025-11-10 21:43:29,073 - INFO - Mixed precision (AMP): True
+2025-11-10 21:43:29,073 - INFO - ============================================================
+2025-11-10 21:43:29,073 - INFO - Initializing datasets...
+2025-11-10 21:43:29,109 - INFO - Dataset initialized: 133,157 segments (optimized for multi-worker loading)
+2025-11-10 21:43:29,114 - INFO - Train: 106,525 segments | Val: 26,632 segments
+2025-11-10 21:43:29,114 - INFO - Using 6 workers for data loading (RTX 4080 optimized)
+2025-11-10 21:43:29,894 - INFO - Model: 2,155,392 parameters
+2025-11-10 21:43:29,894 - INFO - Device: cuda
+2025-11-10 21:43:29,894 - INFO - Conservative settings: dropout=0.2, weight_decay=0.05, early_stopping=True
+2025-11-10 21:43:29,894 - INFO - RTX 4080 optimization: AMP=True, accumulation_steps=4, effective_batch_size=1024
+2025-11-10 21:43:29,895 - INFO - GPU: NVIDIA GeForce RTX 4080
+2025-11-10 21:43:29,895 - INFO - GPU Memory: 15.99GB
+2025-11-10 21:43:29,895 - INFO - Starting conservative training for 25 epochs
+2025-11-10 21:45:45,378 - WARNING - Training batch error: full() received an invalid combination of arguments - got (tuple, str, device=torch.device, dtype=torch.dtype), but expected one of:
+ * (tuple of ints size, Number fill_value, *, tuple of names names, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+ * (tuple of ints size, Number fill_value, *, Tensor out = None, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+
+2025-11-10 21:45:46,275 - WARNING - Training batch error: full() received an invalid combination of arguments - got (tuple, str, device=torch.device, dtype=torch.dtype), but expected one of:
+ * (tuple of ints size, Number fill_value, *, tuple of names names, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+ * (tuple of ints size, Number fill_value, *, Tensor out = None, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+
+2025-11-10 21:45:49,097 - WARNING - Training batch error: full() received an invalid combination of arguments - got (tuple, str, device=torch.device, dtype=torch.dtype), but expected one of:
+ * (tuple of ints size, Number fill_value, *, tuple of names names, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+ * (tuple of ints size, Number fill_value, *, Tensor out = None, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+
+2025-11-10 21:45:49,273 - WARNING - Training batch error: full() received an invalid combination of arguments - got (tuple, str, device=torch.device, dtype=torch.dtype), but expected one of:
+ * (tuple of ints size, Number fill_value, *, tuple of names names, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+ * (tuple of ints size, Number fill_value, *, Tensor out = None, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+
+2025-11-10 21:45:49,450 - WARNING - Training batch error: full() received an invalid combination of arguments - got (tuple, str, device=torch.device, dtype=torch.dtype), but expected one of:
+ * (tuple of ints size, Number fill_value, *, tuple of names names, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+ * (tuple of ints size, Number fill_value, *, Tensor out = None, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+
+2025-11-10 21:45:49,632 - WARNING - Training batch error: full() received an invalid combination of arguments - got (tuple, str, device=torch.device, dtype=torch.dtype), but expected one of:
+ * (tuple of ints size, Number fill_value, *, tuple of names names, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+ * (tuple of ints size, Number fill_value, *, Tensor out = None, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+
+2025-11-10 21:46:10,338 - INFO - Initializing datasets...
+2025-11-10 21:46:10,373 - INFO - Dataset initialized: 133,157 segments (lazy loading)
+2025-11-10 21:46:10,379 - INFO - Train: 106,525 segments | Val: 26,632 segments
+2025-11-10 21:46:10,379 - INFO - Using 6 workers for data loading
+2025-11-10 21:46:11,141 - INFO - Model: 2,155,392 parameters
+2025-11-10 21:46:11,141 - INFO - Device: cuda
+2025-11-10 21:46:11,141 - INFO - Conservative settings: dropout=0.2, weight_decay=0.05, early_stopping=True
+2025-11-10 21:46:11,141 - INFO - Starting conservative training for 25 epochs
+2025-11-11 11:51:45,774 - INFO - ============================================================
+2025-11-11 11:51:45,774 - INFO - RTX 4080 OPTIMIZED CONFIGURATION
+2025-11-11 11:51:45,774 - INFO - ============================================================
+2025-11-11 11:51:45,774 - INFO - Base batch size: 256
+2025-11-11 11:51:45,774 - INFO - Accumulation steps: 4
+2025-11-11 11:51:45,774 - INFO - Effective batch size: 1024
+2025-11-11 11:51:45,774 - INFO - Mixed precision (AMP): True
+2025-11-11 11:51:45,774 - INFO - ============================================================
+2025-11-11 11:51:45,775 - INFO - Initializing datasets...
+2025-11-11 11:51:45,812 - INFO - Dataset initialized: 133,157 segments (optimized for multi-worker loading)
+2025-11-11 11:51:45,817 - INFO - Train: 106,525 segments | Val: 26,632 segments
+2025-11-11 11:51:45,817 - INFO - Using 6 workers for data loading (RTX 4080 optimized)
+2025-11-11 11:51:50,143 - INFO - Model: 2,155,392 parameters
+2025-11-11 11:51:50,143 - INFO - Device: cuda
+2025-11-11 11:51:50,143 - INFO - Conservative settings: dropout=0.2, weight_decay=0.05, early_stopping=True
+2025-11-11 11:51:50,143 - INFO - RTX 4080 optimization: AMP=True, accumulation_steps=4, effective_batch_size=1024
+2025-11-11 11:51:50,143 - INFO - GPU: NVIDIA GeForce RTX 4080
+2025-11-11 11:51:50,143 - INFO - GPU Memory: 15.99GB
+2025-11-11 11:51:50,143 - INFO - Starting conservative training for 25 epochs
+2025-11-11 11:54:35,187 - WARNING - Training batch error: full() received an invalid combination of arguments - got (tuple, str, device=torch.device, dtype=torch.dtype), but expected one of:
+ * (tuple of ints size, Number fill_value, *, tuple of names names, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+ * (tuple of ints size, Number fill_value, *, Tensor out = None, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+
+2025-11-11 11:54:35,635 - WARNING - Training batch error: full() received an invalid combination of arguments - got (tuple, str, device=torch.device, dtype=torch.dtype), but expected one of:
+ * (tuple of ints size, Number fill_value, *, tuple of names names, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+ * (tuple of ints size, Number fill_value, *, Tensor out = None, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+
+2025-11-11 11:54:35,812 - WARNING - Training batch error: full() received an invalid combination of arguments - got (tuple, str, device=torch.device, dtype=torch.dtype), but expected one of:
+ * (tuple of ints size, Number fill_value, *, tuple of names names, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+ * (tuple of ints size, Number fill_value, *, Tensor out = None, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+
+2025-11-11 11:54:35,986 - WARNING - Training batch error: full() received an invalid combination of arguments - got (tuple, str, device=torch.device, dtype=torch.dtype), but expected one of:
+ * (tuple of ints size, Number fill_value, *, tuple of names names, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+ * (tuple of ints size, Number fill_value, *, Tensor out = None, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+
+2025-11-11 11:54:36,175 - WARNING - Training batch error: full() received an invalid combination of arguments - got (tuple, str, device=torch.device, dtype=torch.dtype), but expected one of:
+ * (tuple of ints size, Number fill_value, *, tuple of names names, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+ * (tuple of ints size, Number fill_value, *, Tensor out = None, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+
+2025-11-11 11:54:36,346 - WARNING - Training batch error: full() received an invalid combination of arguments - got (tuple, str, device=torch.device, dtype=torch.dtype), but expected one of:
+ * (tuple of ints size, Number fill_value, *, tuple of names names, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+ * (tuple of ints size, Number fill_value, *, Tensor out = None, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+
+2025-11-11 13:00:26,928 - INFO - Initializing datasets...
+2025-11-11 13:00:26,967 - INFO - Dataset initialized: 133,157 segments (lazy loading)
+2025-11-11 13:00:26,973 - INFO - Train: 106,525 segments | Val: 26,632 segments
+2025-11-11 13:00:26,973 - INFO - Using 6 workers for data loading
+2025-11-11 13:00:27,975 - INFO - Model: 2,155,392 parameters
+2025-11-11 13:00:27,976 - INFO - Device: cuda
+2025-11-11 13:00:27,976 - INFO - Conservative settings: dropout=0.2, weight_decay=0.05, early_stopping=True
+2025-11-11 13:00:27,976 - INFO - Starting conservative training for 25 epochs
+2025-11-11 13:12:45,463 - WARNING - Training batch error: CUDA out of memory. Tried to allocate 4.00 GiB. GPU 0 has a total capacity of 15.99 GiB of which 0 bytes is free. Of the allocated memory 20.65 GiB is allocated by PyTorch, and 63.87 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-11-11 13:13:07,800 - WARNING - Training batch error: CUDA out of memory. Tried to allocate 4.00 GiB. GPU 0 has a total capacity of 15.99 GiB of which 0 bytes is free. Of the allocated memory 17.27 GiB is allocated by PyTorch, and 3.44 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-11-11 13:13:32,131 - WARNING - Training batch error: CUDA out of memory. Tried to allocate 4.00 GiB. GPU 0 has a total capacity of 15.99 GiB of which 0 bytes is free. Of the allocated memory 17.27 GiB is allocated by PyTorch, and 3.44 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-11-11 13:13:54,448 - WARNING - Training batch error: CUDA out of memory. Tried to allocate 4.00 GiB. GPU 0 has a total capacity of 15.99 GiB of which 0 bytes is free. Of the allocated memory 17.28 GiB is allocated by PyTorch, and 3.44 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-11-11 13:14:18,776 - WARNING - Training batch error: CUDA out of memory. Tried to allocate 4.00 GiB. GPU 0 has a total capacity of 15.99 GiB of which 0 bytes is free. Of the allocated memory 17.28 GiB is allocated by PyTorch, and 3.44 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-11-11 13:14:41,274 - WARNING - Training batch error: CUDA out of memory. Tried to allocate 4.00 GiB. GPU 0 has a total capacity of 15.99 GiB of which 0 bytes is free. Of the allocated memory 17.28 GiB is allocated by PyTorch, and 3.44 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-11-11 13:25:40,075 - WARNING - Training batch error: CUDA out of memory. Tried to allocate 4.00 GiB. GPU 0 has a total capacity of 15.99 GiB of which 0 bytes is free. Of the allocated memory 17.28 GiB is allocated by PyTorch, and 3.44 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-11-11 16:59:12,625 - INFO - Initializing datasets...
+2025-11-11 16:59:12,660 - INFO - Dataset initialized: 133,157 segments (lazy loading)
+2025-11-11 16:59:12,665 - INFO - Train: 106,525 segments | Val: 26,632 segments
+2025-11-11 16:59:12,665 - INFO - Using 6 workers for data loading
+2025-11-11 16:59:13,455 - INFO - Model: 2,155,392 parameters
+2025-11-11 16:59:13,455 - INFO - Device: cuda
+2025-11-11 16:59:13,455 - INFO - Conservative settings: dropout=0.2, weight_decay=0.05, early_stopping=True
+2025-11-11 16:59:13,455 - INFO - Starting conservative training for 25 epochs
+2025-11-11 17:08:16,871 - WARNING - Training batch error: CUDA out of memory. Tried to allocate 4.00 GiB. GPU 0 has a total capacity of 15.99 GiB of which 0 bytes is free. Of the allocated memory 20.65 GiB is allocated by PyTorch, and 63.87 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-11-11 17:08:39,109 - WARNING - Training batch error: CUDA out of memory. Tried to allocate 4.00 GiB. GPU 0 has a total capacity of 15.99 GiB of which 0 bytes is free. Of the allocated memory 17.27 GiB is allocated by PyTorch, and 3.44 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-11-11 17:09:06,402 - WARNING - Training batch error: CUDA out of memory. Tried to allocate 4.00 GiB. GPU 0 has a total capacity of 15.99 GiB of which 0 bytes is free. Of the allocated memory 17.27 GiB is allocated by PyTorch, and 3.44 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-11-11 17:09:28,657 - WARNING - Training batch error: CUDA out of memory. Tried to allocate 4.00 GiB. GPU 0 has a total capacity of 15.99 GiB of which 0 bytes is free. Of the allocated memory 17.28 GiB is allocated by PyTorch, and 3.44 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-11-11 17:09:50,881 - WARNING - Training batch error: CUDA out of memory. Tried to allocate 4.00 GiB. GPU 0 has a total capacity of 15.99 GiB of which 0 bytes is free. Of the allocated memory 17.28 GiB is allocated by PyTorch, and 3.44 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-11-11 17:10:16,152 - WARNING - Training batch error: CUDA out of memory. Tried to allocate 4.00 GiB. GPU 0 has a total capacity of 15.99 GiB of which 0 bytes is free. Of the allocated memory 17.28 GiB is allocated by PyTorch, and 3.44 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+2025-11-11 17:14:37,117 - INFO - Initializing datasets...
+2025-11-11 17:14:37,154 - INFO - Dataset initialized: 133,157 segments (lazy loading)
+2025-11-11 17:14:37,158 - INFO - Train: 106,525 segments | Val: 26,632 segments
+2025-11-11 17:14:37,158 - INFO - Using 6 workers for data loading
+2025-11-11 17:14:41,713 - INFO - Model: 2,155,392 parameters
+2025-11-11 17:14:41,713 - INFO - Device: cuda
+2025-11-11 17:14:41,713 - INFO - Conservative settings: dropout=0.2, weight_decay=0.05, early_stopping=True
+2025-11-11 17:14:41,713 - INFO - Starting conservative training for 25 epochs
+2025-11-11 22:15:10,933 - INFO - Initializing datasets...
+2025-11-11 22:15:10,969 - INFO - Dataset initialized: 133,157 segments (lazy loading)
+2025-11-11 22:15:10,974 - INFO - Train: 106,525 segments | Val: 26,632 segments
+2025-11-11 22:15:10,975 - INFO - Using 6 workers for data loading
+2025-11-11 22:15:11,927 - INFO - Model: 544,768 parameters
+2025-11-11 22:15:11,927 - INFO - Device: cuda
+2025-11-11 22:15:11,927 - INFO - Conservative settings: dropout=0.2, weight_decay=0.05, early_stopping=True
+2025-11-11 22:15:11,927 - INFO - Starting conservative training for 30 epochs
+2025-11-12 00:02:22,850 - INFO - Initializing datasets...
+2025-11-12 00:02:22,887 - INFO - Dataset initialized: 133,157 segments (lazy loading)
+2025-11-12 00:02:22,892 - INFO - Train: 106,525 segments | Val: 26,632 segments
+2025-11-12 00:02:22,892 - INFO - Using 6 workers for data loading
+2025-11-12 00:02:25,556 - INFO - Model: 544,768 parameters
+2025-11-12 00:02:25,556 - INFO - Device: cuda
+2025-11-12 00:02:25,556 - INFO - Conservative settings: dropout=0.2, weight_decay=0.05, early_stopping=True
+2025-11-12 00:02:25,556 - INFO - Starting conservative training for 30 epochs
+2025-11-12 13:55:19,680 - INFO - Initializing datasets...
+2025-11-12 13:55:19,729 - INFO - Dataset initialized: 133,157 segments (lazy loading)
+2025-11-12 13:55:19,735 - INFO - Train: 106,525 segments | Val: 26,632 segments
+2025-11-12 13:55:19,735 - INFO - Using 6 workers for data loading
+2025-11-12 13:55:23,256 - INFO - Model: 544,768 parameters
+2025-11-12 13:55:23,256 - INFO - Device: cuda
+2025-11-12 13:55:23,256 - INFO - Conservative settings: dropout=0.2, weight_decay=0.05, early_stopping=True
+2025-11-12 13:55:23,256 - INFO - Starting conservative training for 30 epochs
+2025-11-12 14:19:46,914 - INFO - Initializing datasets...
+2025-11-12 14:19:46,953 - INFO - Dataset initialized: 133,157 segments (lazy loading)
+2025-11-12 14:19:46,958 - INFO - Train: 106,525 segments | Val: 26,632 segments
+2025-11-12 14:19:46,958 - INFO - Using 6 workers for data loading
+2025-11-12 14:19:47,731 - INFO - Model: 544,768 parameters
+2025-11-12 14:19:47,731 - INFO - Device: cuda
+2025-11-12 14:19:47,731 - INFO - Conservative settings: dropout=0.2, weight_decay=0.05, early_stopping=True
+2025-11-12 14:19:47,731 - INFO - Starting conservative training for 30 epochs

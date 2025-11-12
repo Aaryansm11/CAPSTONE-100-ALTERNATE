@@ -1,0 +1,66 @@
+2025-11-11 12:10:56,524 - INFO - ======================================================================
+2025-11-11 12:10:56,524 - INFO - RTX 4080 FULL DATASET OPTIMIZED TRAINING
+2025-11-11 12:10:56,524 - INFO - ======================================================================
+2025-11-11 12:10:56,524 - INFO - Batch size: 512
+2025-11-11 12:10:56,524 - INFO - Accumulation steps: 2
+2025-11-11 12:10:56,525 - INFO - Effective batch size: 1024
+2025-11-11 12:10:56,525 - INFO - Learning rate: 0.0003
+2025-11-11 12:10:56,525 - INFO - Max epochs: 15
+2025-11-11 12:10:56,525 - INFO - Time limit: 4.5 hours
+2025-11-11 12:10:56,525 - INFO - RAM preload: True
+2025-11-11 12:10:56,525 - INFO - ======================================================================
+2025-11-11 12:10:56,526 - INFO - Initializing dataset...
+2025-11-11 12:10:56,563 - INFO - Preloading 4.96GB dataset to RAM for maximum speed...
+2025-11-11 12:11:06,673 - INFO - Dataset preloaded in 10.1s - Zero I/O latency achieved!
+2025-11-11 12:11:06,677 - INFO - Dataset initialized: 133,157 segments
+2025-11-11 12:11:06,680 - INFO - Train: 106,525 samples | Val: 26,632 samples
+2025-11-11 12:11:06,680 - INFO - CUDA Graphs enabled for maximum performance
+2025-11-11 12:11:06,755 - INFO - Compiling model with torch.compile() for maximum speed...
+2025-11-11 12:11:08,375 - INFO - Model parameters: 2,155,392
+2025-11-11 12:11:08,375 - INFO - Device: cuda
+2025-11-11 12:11:08,375 - INFO - Optimizations: TF32=True, Compile=max-autotune, Fused optimizer, AMP
+2025-11-11 12:11:08,375 - INFO - Training plan: 15 epochs, early stopping patience=3
+2025-11-11 12:11:08,375 - INFO - Effective batch size: 1024
+2025-11-11 12:11:08,375 - INFO - GPU: NVIDIA GeForce RTX 4080
+2025-11-11 12:11:08,375 - INFO - Memory: 15.99GB
+2025-11-11 12:11:08,375 - INFO - SMs: 76
+2025-11-11 12:11:08,375 - INFO - Compute capability: 8.9
+2025-11-11 12:11:08,414 - INFO - Starting optimized training...
+2025-11-11 12:11:08,416 - INFO - ======================================================================
+2025-11-11 12:11:08,416 - INFO - STARTING MAXIMUM GPU UTILIZATION TRAINING
+2025-11-11 12:11:08,416 - INFO - Target: Full dataset, <4.5hrs, >90% accuracy
+2025-11-11 12:11:08,416 - INFO - ======================================================================
+2025-11-11 12:11:08,416 - INFO - Pre-compiling model...
+2025-11-11 12:13:17,695 - INFO - ======================================================================
+2025-11-11 12:13:17,695 - INFO - RTX 4080 FULL DATASET OPTIMIZED TRAINING
+2025-11-11 12:13:17,695 - INFO - ======================================================================
+2025-11-11 12:13:17,696 - INFO - Batch size: 512
+2025-11-11 12:13:17,696 - INFO - Accumulation steps: 2
+2025-11-11 12:13:17,696 - INFO - Effective batch size: 1024
+2025-11-11 12:13:17,696 - INFO - Learning rate: 0.0003
+2025-11-11 12:13:17,696 - INFO - Max epochs: 15
+2025-11-11 12:13:17,696 - INFO - Time limit: 4.5 hours
+2025-11-11 12:13:17,696 - INFO - RAM preload: True
+2025-11-11 12:13:17,696 - INFO - ======================================================================
+2025-11-11 12:13:17,697 - INFO - Initializing dataset...
+2025-11-11 12:13:17,734 - INFO - Preloading 4.96GB dataset to RAM for maximum speed...
+2025-11-11 12:13:27,824 - INFO - Dataset preloaded in 10.1s - Zero I/O latency achieved!
+2025-11-11 12:13:27,824 - INFO - Dataset initialized: 133,157 segments
+2025-11-11 12:13:27,829 - INFO - Train: 106,525 samples | Val: 26,632 samples
+2025-11-11 12:13:27,830 - INFO - CUDA Graphs enabled for maximum performance
+2025-11-11 12:13:27,897 - INFO - Compiling model with torch.compile() for maximum speed...
+2025-11-11 12:13:28,404 - INFO - Model parameters: 2,155,392
+2025-11-11 12:13:28,404 - INFO - Device: cuda
+2025-11-11 12:13:28,405 - INFO - Optimizations: TF32=True, Compile=max-autotune, Fused optimizer, AMP
+2025-11-11 12:13:28,405 - INFO - Training plan: 15 epochs, early stopping patience=3
+2025-11-11 12:13:28,405 - INFO - Effective batch size: 1024
+2025-11-11 12:13:28,405 - INFO - GPU: NVIDIA GeForce RTX 4080
+2025-11-11 12:13:28,405 - INFO - Memory: 15.99GB
+2025-11-11 12:13:28,405 - INFO - SMs: 76
+2025-11-11 12:13:28,405 - INFO - Compute capability: 8.9
+2025-11-11 12:13:28,441 - INFO - Starting optimized training...
+2025-11-11 12:13:28,441 - INFO - ======================================================================
+2025-11-11 12:13:28,441 - INFO - STARTING MAXIMUM GPU UTILIZATION TRAINING
+2025-11-11 12:13:28,441 - INFO - Target: Full dataset, <4.5hrs, >90% accuracy
+2025-11-11 12:13:28,441 - INFO - ======================================================================
+2025-11-11 12:13:28,441 - INFO - Pre-compiling model...

@@ -93,19 +93,19 @@ class ComprehensiveValidator:
                     'size_mb': round(size_mb, 2),
                     'exists': True
                 }
-                print(f"  ✓ {file_type:12s}: {filename:30s} ({size_mb:.2f} MB)")
+                print(f"   {file_type:12s}: {filename:30s} ({size_mb:.2f} MB)")
             else:
                 test_result['files'][file_type] = {'exists': False}
                 test_result['issues'].append(f"Missing {file_type}: {filename}")
                 test_result['status'] = 'FAIL'
-                print(f"  ✗ {file_type:12s}: {filename:30s} MISSING")
+                print(f"   {file_type:12s}: {filename:30s} MISSING")
 
         self.report['tests']['file_integrity'] = test_result
 
         if test_result['status'] == 'PASS':
-            print(f"\n✅ TEST 1 PASSED: All required files present")
+            print(f"\n TEST 1 PASSED: All required files present")
         else:
-            print(f"\n❌ TEST 1 FAILED: {len(test_result['issues'])} issues found")
+            print(f"\n TEST 1 FAILED: {len(test_result['issues'])} issues found")
 
     def test_2_dataset_quality(self):
         """Test 2: Dataset Quality and Statistics"""
@@ -134,11 +134,11 @@ class ComprehensiveValidator:
                     'dtype': str(segments.dtype)
                 }
 
-                print(f"  📊 Dataset Statistics:")
-                print(f"    • Total segments: {len(segments):,}")
-                print(f"    • Shape: {segments.shape}")
-                print(f"    • Size: {segments.nbytes / (1024**3):.2f} GB")
-                print(f"    • Data type: {segments.dtype}")
+                print(f"   Dataset Statistics:")
+                print(f"     Total segments: {len(segments):,}")
+                print(f"     Shape: {segments.shape}")
+                print(f"     Size: {segments.nbytes / (1024**3):.2f} GB")
+                print(f"     Data type: {segments.dtype}")
 
                 # Quality checks on sample
                 sample_size = min(10000, len(segments))
@@ -154,16 +154,16 @@ class ComprehensiveValidator:
                 if has_nan:
                     test_result['issues'].append(f"NaN values detected in dataset")
                     test_result['status'] = 'FAIL'
-                    print(f"    ✗ NaN values detected")
+                    print(f"     NaN values detected")
                 else:
-                    print(f"    ✓ No NaN values")
+                    print(f"     No NaN values")
 
                 if has_inf:
                     test_result['issues'].append(f"Inf values detected in dataset")
                     test_result['status'] = 'FAIL'
-                    print(f"    ✗ Inf values detected")
+                    print(f"     Inf values detected")
                 else:
-                    print(f"    ✓ No Inf values")
+                    print(f"     No Inf values")
 
                 # Data distribution
                 data_mean = float(sample_data.mean())
@@ -178,14 +178,14 @@ class ComprehensiveValidator:
                     'max': data_max
                 }
 
-                print(f"    • Data range: [{data_min:.4f}, {data_max:.4f}]")
-                print(f"    • Mean: {data_mean:.4f}")
-                print(f"    • Std: {data_std:.4f}")
+                print(f"     Data range: [{data_min:.4f}, {data_max:.4f}]")
+                print(f"     Mean: {data_mean:.4f}")
+                print(f"     Std: {data_std:.4f}")
 
-                # Check for reasonable values (z-normalized data should have mean≈0, std≈1)
+                # Check for reasonable values (z-normalized data should have mean0, std1)
                 if abs(data_mean) > 0.5:
-                    test_result['issues'].append(f"Data mean={data_mean:.2f} (expected≈0 for normalized data)")
-                    print(f"    ⚠ Data mean={data_mean:.2f} (unusual for normalized data)")
+                    test_result['issues'].append(f"Data mean={data_mean:.2f} (expected0 for normalized data)")
+                    print(f"     Data mean={data_mean:.2f} (unusual for normalized data)")
 
                 # Load and validate metadata
                 metadata_path = self.base_dir / 'full_dataset_metadata.pkl'
@@ -197,9 +197,9 @@ class ComprehensiveValidator:
                 if len(metadata) != len(segments):
                     test_result['issues'].append(f"Metadata count ({len(metadata)}) != segments ({len(segments)})")
                     test_result['status'] = 'FAIL'
-                    print(f"    ✗ Metadata mismatch: {len(metadata)} vs {len(segments)}")
+                    print(f"     Metadata mismatch: {len(metadata)} vs {len(segments)}")
                 else:
-                    print(f"    ✓ Metadata count matches: {len(metadata):,}")
+                    print(f"     Metadata count matches: {len(metadata):,}")
 
                 # Analyze metadata
                 patient_ids = [m.get('patient_id') for m in metadata]
@@ -216,22 +216,22 @@ class ComprehensiveValidator:
                     'arrhythmia_rate': arrhythmia_count / len(metadata)
                 }
 
-                print(f"\n  🏥 Clinical Statistics:")
-                print(f"    • Unique patients: {unique_patients}")
-                print(f"    • Stroke cases: {stroke_count:,} ({100*stroke_count/len(metadata):.1f}%)")
-                print(f"    • Arrhythmia cases: {arrhythmia_count:,} ({100*arrhythmia_count/len(metadata):.1f}%)")
+                print(f"\n   Clinical Statistics:")
+                print(f"     Unique patients: {unique_patients}")
+                print(f"     Stroke cases: {stroke_count:,} ({100*stroke_count/len(metadata):.1f}%)")
+                print(f"     Arrhythmia cases: {arrhythmia_count:,} ({100*arrhythmia_count/len(metadata):.1f}%)")
 
         except Exception as e:
             test_result['status'] = 'FAIL'
             test_result['issues'].append(f"Dataset loading error: {str(e)}")
-            print(f"\n❌ Error loading dataset: {e}")
+            print(f"\n Error loading dataset: {e}")
 
         self.report['tests']['dataset_quality'] = test_result
 
         if test_result['status'] == 'PASS':
-            print(f"\n✅ TEST 2 PASSED: Dataset quality verified")
+            print(f"\n TEST 2 PASSED: Dataset quality verified")
         else:
-            print(f"\n❌ TEST 2 FAILED: {len(test_result['issues'])} issues found")
+            print(f"\n TEST 2 FAILED: {len(test_result['issues'])} issues found")
 
     def test_3_model_architecture(self):
         """Test 3: Model Architecture Validation"""
@@ -267,10 +267,10 @@ class ComprehensiveValidator:
                 'detected_from': 'checkpoint weights'
             }
 
-            print(f"  🏗️  Architecture:")
-            print(f"    • Input channels: {input_channels}")
-            print(f"    • Hidden dims: {config['hidden_dims']}")
-            print(f"    • Embedding dim: {config['embedding_dim']}")
+            print(f"    Architecture:")
+            print(f"     Input channels: {input_channels}")
+            print(f"     Hidden dims: {config['hidden_dims']}")
+            print(f"     Embedding dim: {config['embedding_dim']}")
 
             # Create and load model
             model = WaveformEncoder(
@@ -289,11 +289,11 @@ class ComprehensiveValidator:
                 'trainable': trainable_params
             }
 
-            print(f"    • Total parameters: {total_params:,}")
-            print(f"    • Trainable parameters: {trainable_params:,}")
+            print(f"     Total parameters: {total_params:,}")
+            print(f"     Trainable parameters: {trainable_params:,}")
 
             # Verify model works
-            print(f"\n  🔬 Testing inference...")
+            print(f"\n   Testing inference...")
             model = model.to(self.device)
             model.eval()
 
@@ -305,44 +305,44 @@ class ComprehensiveValidator:
             actual_shape = tuple(test_output.shape)
 
             if actual_shape == expected_shape:
-                print(f"    ✓ Input: {test_input.shape} → Output: {test_output.shape}")
-                print(f"    ✓ Output shape correct: {expected_shape}")
+                print(f"     Input: {test_input.shape}  Output: {test_output.shape}")
+                print(f"     Output shape correct: {expected_shape}")
             else:
                 test_result['issues'].append(f"Output shape mismatch: {actual_shape} != {expected_shape}")
                 test_result['status'] = 'FAIL'
-                print(f"    ✗ Output shape mismatch: {actual_shape} != {expected_shape}")
+                print(f"     Output shape mismatch: {actual_shape} != {expected_shape}")
 
             # Check for NaN/Inf in output
             if torch.isnan(test_output).any():
                 test_result['issues'].append("NaN in model output")
                 test_result['status'] = 'FAIL'
-                print(f"    ✗ NaN detected in output")
+                print(f"     NaN detected in output")
             elif torch.isinf(test_output).any():
                 test_result['issues'].append("Inf in model output")
                 test_result['status'] = 'FAIL'
-                print(f"    ✗ Inf detected in output")
+                print(f"     Inf detected in output")
             else:
-                print(f"    ✓ No NaN/Inf in output")
+                print(f"     No NaN/Inf in output")
 
             # Check training history
             if 'epoch' in checkpoint:
                 test_result['training'] = {
                     'epochs_completed': checkpoint['epoch']
                 }
-                print(f"\n  📈 Training History:")
-                print(f"    • Epochs completed: {checkpoint['epoch']}")
+                print(f"\n   Training History:")
+                print(f"     Epochs completed: {checkpoint['epoch']}")
 
         except Exception as e:
             test_result['status'] = 'FAIL'
             test_result['issues'].append(f"Model architecture error: {str(e)}")
-            print(f"\n❌ Error: {e}")
+            print(f"\n Error: {e}")
 
         self.report['tests']['model_architecture'] = test_result
 
         if test_result['status'] == 'PASS':
-            print(f"\n✅ TEST 3 PASSED: Model architecture valid")
+            print(f"\n TEST 3 PASSED: Model architecture valid")
         else:
-            print(f"\n❌ TEST 3 FAILED: {len(test_result['issues'])} issues found")
+            print(f"\n TEST 3 FAILED: {len(test_result['issues'])} issues found")
 
     def test_4_model_training_quality(self):
         """Test 4: Model Training Quality"""
@@ -360,10 +360,10 @@ class ComprehensiveValidator:
             # Check for training log
             log_path = self.base_dir / 'train.log'
             if log_path.exists():
-                print(f"  📄 Training log found: {log_path}")
+                print(f"   Training log found: {log_path}")
                 # Could parse log for loss curves, etc.
             else:
-                print(f"  ⚠ No training log found")
+                print(f"   No training log found")
 
             # Load checkpoint to check training state
             checkpoint_path = self.base_dir / 'checkpoint_epoch_final.pth'
@@ -371,21 +371,21 @@ class ComprehensiveValidator:
 
             if 'epoch' in checkpoint:
                 test_result['metrics']['epochs'] = checkpoint['epoch']
-                print(f"    • Training epochs: {checkpoint['epoch']}")
+                print(f"     Training epochs: {checkpoint['epoch']}")
 
-            print(f"\n  ⏳ Training completed successfully")
+            print(f"\n   Training completed successfully")
 
         except Exception as e:
             test_result['status'] = 'FAIL'
             test_result['issues'].append(f"Training quality check error: {str(e)}")
-            print(f"\n❌ Error: {e}")
+            print(f"\n Error: {e}")
 
         self.report['tests']['training_quality'] = test_result
 
         if test_result['status'] == 'PASS':
-            print(f"\n✅ TEST 4 PASSED: Training quality acceptable")
+            print(f"\n TEST 4 PASSED: Training quality acceptable")
         else:
-            print(f"\n❌ TEST 4 FAILED: {len(test_result['issues'])} issues found")
+            print(f"\n TEST 4 FAILED: {len(test_result['issues'])} issues found")
 
     def test_5_embedding_diversity(self):
         """Test 5: Embedding Diversity (Representation Collapse Check)"""
@@ -402,7 +402,7 @@ class ComprehensiveValidator:
 
         try:
             # Load model and data
-            print(f"  🔄 Loading model and data...")
+            print(f"   Loading model and data...")
 
             config_path = self.base_dir / 'config.json'
             with open(config_path, 'r') as f:
@@ -431,7 +431,7 @@ class ComprehensiveValidator:
                 segments = h5f['segments'][sample_indices]
 
             # Generate embeddings
-            print(f"  🧠 Generating {len(segments)} embeddings...")
+            print(f"   Generating {len(segments)} embeddings...")
             segments_tensor = torch.tensor(segments, dtype=torch.float32)
             segments_tensor = segments_tensor.transpose(1, 2).to(self.device)
 
@@ -446,7 +446,7 @@ class ComprehensiveValidator:
             embeddings = torch.cat(all_embeddings, dim=0)
 
             # Analyze diversity
-            print(f"\n  📈 Analyzing diversity...")
+            print(f"\n   Analyzing diversity...")
 
             # Normalize embeddings
             normalized = F.normalize(embeddings, dim=1)
@@ -475,27 +475,27 @@ class ComprehensiveValidator:
                 'sample_size': sample_size
             }
 
-            print(f"    • Mean similarity: {mean_sim:.4f}")
-            print(f"    • Std similarity: {std_sim:.4f}")
-            print(f"    • Range: [{min_sim:.4f}, {max_sim:.4f}]")
+            print(f"     Mean similarity: {mean_sim:.4f}")
+            print(f"     Std similarity: {std_sim:.4f}")
+            print(f"     Range: [{min_sim:.4f}, {max_sim:.4f}]")
 
             # Check for collapse
             if mean_sim > 0.99:
                 test_result['verdict'] = 'COLLAPSED'
                 test_result['status'] = 'FAIL'
                 test_result['issues'].append(f"Representation collapse detected (sim={mean_sim:.4f})")
-                print(f"\n    ❌ REPRESENTATION COLLAPSE DETECTED!")
+                print(f"\n     REPRESENTATION COLLAPSE DETECTED!")
                 print(f"    All embeddings are nearly identical (mean sim={mean_sim:.4f})")
             elif mean_sim > 0.90:
                 test_result['verdict'] = 'POOR_DIVERSITY'
                 test_result['issues'].append(f"Poor embedding diversity (sim={mean_sim:.4f})")
-                print(f"\n    ⚠ WARNING: Poor diversity (mean sim={mean_sim:.4f})")
+                print(f"\n     WARNING: Poor diversity (mean sim={mean_sim:.4f})")
             elif mean_sim > 0.70:
                 test_result['verdict'] = 'GOOD'
-                print(f"\n    ✓ GOOD: Moderate similarity ({mean_sim:.4f})")
+                print(f"\n     GOOD: Moderate similarity ({mean_sim:.4f})")
             else:
                 test_result['verdict'] = 'EXCELLENT'
-                print(f"\n    ✅ EXCELLENT: High diversity ({mean_sim:.4f})")
+                print(f"\n     EXCELLENT: High diversity ({mean_sim:.4f})")
 
             # Check variance across dimensions
             dim_variance = embeddings.var(dim=0)
@@ -507,25 +507,25 @@ class ComprehensiveValidator:
                 'mean_variance': float(dim_variance.mean().item())
             }
 
-            print(f"\n  📊 Dimension-wise variance:")
-            print(f"    • Low variance dims (<0.1): {low_variance_dims}/{config['embedding_dim']}")
-            print(f"    • Mean variance: {dim_variance.mean().item():.4f}")
+            print(f"\n   Dimension-wise variance:")
+            print(f"     Low variance dims (<0.1): {low_variance_dims}/{config['embedding_dim']}")
+            print(f"     Mean variance: {dim_variance.mean().item():.4f}")
 
             if low_variance_dims > config['embedding_dim'] * 0.5:
                 test_result['issues'].append(f">50% dimensions have low variance")
-                print(f"    ⚠ More than 50% dimensions have low variance")
+                print(f"     More than 50% dimensions have low variance")
 
         except Exception as e:
             test_result['status'] = 'FAIL'
             test_result['issues'].append(f"Embedding diversity check error: {str(e)}")
-            print(f"\n❌ Error: {e}")
+            print(f"\n Error: {e}")
 
         self.report['tests']['embedding_diversity'] = test_result
 
         if test_result['status'] == 'PASS':
-            print(f"\n✅ TEST 5 PASSED: Embeddings show good diversity")
+            print(f"\n TEST 5 PASSED: Embeddings show good diversity")
         else:
-            print(f"\n❌ TEST 5 FAILED: {len(test_result['issues'])} issues found")
+            print(f"\n TEST 5 FAILED: {len(test_result['issues'])} issues found")
 
     def test_6_clinical_data_integrity(self):
         """Test 6: Clinical Data Integrity"""
@@ -544,7 +544,7 @@ class ComprehensiveValidator:
             with open(metadata_path, 'rb') as f:
                 metadata = pickle.load(f)
 
-            print(f"  🏥 Analyzing clinical metadata...")
+            print(f"   Analyzing clinical metadata...")
 
             # Age distribution
             ages = [m.get('age', 65) for m in metadata]
@@ -559,7 +559,7 @@ class ComprehensiveValidator:
                 'total_count': len(ages)
             }
 
-            print(f"    • Age: mean={np.mean(valid_ages):.1f}, range=[{np.min(valid_ages):.0f}, {np.max(valid_ages):.0f}]")
+            print(f"     Age: mean={np.mean(valid_ages):.1f}, range=[{np.min(valid_ages):.0f}, {np.max(valid_ages):.0f}]")
 
             # Gender distribution
             males = sum(1 for m in metadata if m.get('gender', 0) == 1)
@@ -569,7 +569,7 @@ class ComprehensiveValidator:
                 'male_pct': males / len(metadata)
             }
 
-            print(f"    • Gender: {males:,} male ({100*males/len(metadata):.1f}%), {len(metadata)-males:,} female")
+            print(f"     Gender: {males:,} male ({100*males/len(metadata):.1f}%), {len(metadata)-males:,} female")
 
             # Diagnosis distribution
             stroke = sum(1 for m in metadata if m.get('has_stroke', 0) == 1)
@@ -582,20 +582,20 @@ class ComprehensiveValidator:
                 'arrhythmia_rate': arrhythmia / len(metadata)
             }
 
-            print(f"    • Stroke: {stroke:,} cases ({100*stroke/len(metadata):.1f}%)")
-            print(f"    • Arrhythmia: {arrhythmia:,} cases ({100*arrhythmia/len(metadata):.1f}%)")
+            print(f"     Stroke: {stroke:,} cases ({100*stroke/len(metadata):.1f}%)")
+            print(f"     Arrhythmia: {arrhythmia:,} cases ({100*arrhythmia/len(metadata):.1f}%)")
 
         except Exception as e:
             test_result['status'] = 'FAIL'
             test_result['issues'].append(f"Clinical data error: {str(e)}")
-            print(f"\n❌ Error: {e}")
+            print(f"\n Error: {e}")
 
         self.report['tests']['clinical_data'] = test_result
 
         if test_result['status'] == 'PASS':
-            print(f"\n✅ TEST 6 PASSED: Clinical data integrity verified")
+            print(f"\n TEST 6 PASSED: Clinical data integrity verified")
         else:
-            print(f"\n❌ TEST 6 FAILED: {len(test_result['issues'])} issues found")
+            print(f"\n TEST 6 FAILED: {len(test_result['issues'])} issues found")
 
     def test_7_pipeline_consistency(self):
         """Test 7: Pipeline Consistency"""
@@ -636,11 +636,11 @@ class ComprehensiveValidator:
             }
 
             if dataset_channels == model_input_channels:
-                print(f"  ✓ Channel consistency: dataset={dataset_channels}, model={model_input_channels}")
+                print(f"   Channel consistency: dataset={dataset_channels}, model={model_input_channels}")
             else:
                 test_result['issues'].append(f"Channel mismatch: dataset={dataset_channels}, model={model_input_channels}")
                 test_result['status'] = 'FAIL'
-                print(f"  ✗ Channel mismatch: dataset={dataset_channels} != model={model_input_channels}")
+                print(f"   Channel mismatch: dataset={dataset_channels} != model={model_input_channels}")
 
             # Check sequence length
             dataset_seq_len = dataset_shape[1]
@@ -653,22 +653,22 @@ class ComprehensiveValidator:
             }
 
             if dataset_seq_len == expected_seq_len:
-                print(f"  ✓ Sequence length: {dataset_seq_len} samples ({config['segment_length_sec']}s @ {config['sampling_rate']}Hz)")
+                print(f"   Sequence length: {dataset_seq_len} samples ({config['segment_length_sec']}s @ {config['sampling_rate']}Hz)")
             else:
                 test_result['issues'].append(f"Sequence length mismatch: {dataset_seq_len} != {expected_seq_len}")
-                print(f"  ⚠ Sequence length: {dataset_seq_len} (expected {expected_seq_len})")
+                print(f"   Sequence length: {dataset_seq_len} (expected {expected_seq_len})")
 
         except Exception as e:
             test_result['status'] = 'FAIL'
             test_result['issues'].append(f"Pipeline consistency error: {str(e)}")
-            print(f"\n❌ Error: {e}")
+            print(f"\n Error: {e}")
 
         self.report['tests']['pipeline_consistency'] = test_result
 
         if test_result['status'] == 'PASS':
-            print(f"\n✅ TEST 7 PASSED: Pipeline is consistent")
+            print(f"\n TEST 7 PASSED: Pipeline is consistent")
         else:
-            print(f"\n❌ TEST 7 FAILED: {len(test_result['issues'])} issues found")
+            print(f"\n TEST 7 FAILED: {len(test_result['issues'])} issues found")
 
     def generate_report(self):
         """Generate comprehensive report"""
@@ -682,30 +682,30 @@ class ComprehensiveValidator:
         failed = total_tests - passed
 
         print(f"\nTests Run: {total_tests}")
-        print(f"  ✅ Passed: {passed}")
-        print(f"  ❌ Failed: {failed}")
+        print(f"   Passed: {passed}")
+        print(f"   Failed: {failed}")
 
         # Summary by test
         print(f"\nTest Results:")
         for test_name, test_result in self.report['tests'].items():
-            status_icon = "✅" if test_result['status'] == 'PASS' else "❌"
+            status_icon = "" if test_result['status'] == 'PASS' else ""
             print(f"  {status_icon} {test_name}: {test_result['status']}")
             if test_result['issues']:
                 for issue in test_result['issues']:
-                    print(f"      • {issue}")
+                    print(f"       {issue}")
 
         # Save report
         report_path = self.base_dir / 'comprehensive_validation_report.json'
         with open(report_path, 'w') as f:
             json.dump(self.report, f, indent=2)
 
-        print(f"\n📄 Full report saved: {report_path}")
+        print(f"\n Full report saved: {report_path}")
 
         print("\n" + "=" * 80)
         if failed == 0:
-            print("🎉 ALL TESTS PASSED!")
+            print(" ALL TESTS PASSED!")
         else:
-            print(f"⚠️  {failed} TEST(S) FAILED - SEE DETAILS ABOVE")
+            print(f"  {failed} TEST(S) FAILED - SEE DETAILS ABOVE")
         print("=" * 80)
 
         return report_path

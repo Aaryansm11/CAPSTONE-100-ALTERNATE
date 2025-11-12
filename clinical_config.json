@@ -1,0 +1,14 @@
+{
+  "mimic_data_path": "dataset/uploads/physionet.org/files/mimiciii/1.4",
+  "note": "Update mimic_data_path to the absolute path where your MIMIC-III CSV files are located",
+  "required_files": [
+    "DIAGNOSES_ICD.csv",
+    "PRESCRIPTIONS.csv",
+    "PATIENTS.csv"
+  ],
+  "example_paths": [
+    "C:/Users/ANT-PC/Documents/PROJECT-AARYAN/dataset/uploads/physionet.org/files/mimiciii/1.4",
+    "C:/Users/ANT-PC/Documents/dataset/uploads/physionet.org/files/mimiciii/1.4",
+    "../dataset/uploads/physionet.org/files/mimiciii/1.4"
+  ]
+}

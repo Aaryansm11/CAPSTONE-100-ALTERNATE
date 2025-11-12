@@ -1,0 +1,174 @@
+2025-11-11 12:39:33,774 - INFO - System RAM: 37.0GB available / 63.8GB total
+2025-11-11 12:39:33,774 - INFO - ======================================================================
+2025-11-11 12:39:33,774 - INFO - WINDOWS-OPTIMIZED TRAINING - RTX 4080
+2025-11-11 12:39:33,774 - INFO - ======================================================================
+2025-11-11 12:39:33,774 - INFO - Batch size: 1024
+2025-11-11 12:39:33,774 - INFO - Workers: 2 (0=fastest on Windows with RAM caching)
+2025-11-11 12:39:33,774 - INFO - Learning rate: 0.0005
+2025-11-11 12:39:33,774 - INFO - Triton: False
+2025-11-11 12:39:33,774 - INFO - ======================================================================
+2025-11-11 12:39:33,775 - INFO - Initializing dataset...
+2025-11-11 12:39:33,814 - INFO - Dataset size: 4.96GB
+2025-11-11 12:39:33,815 - INFO - Available RAM: 36.93GB
+2025-11-11 12:39:33,815 - INFO - Loading dataset to RAM...
+2025-11-11 12:39:44,782 - INFO - Dataset cached in 11.0s
+2025-11-11 12:39:44,782 - INFO - Shape: (133157, 1250, 8)
+2025-11-11 12:39:44,782 - INFO - Computing normalization statistics...
+2025-11-11 12:39:49,482 - INFO - Dataset ready!
+2025-11-11 12:39:49,486 - INFO - Train: 106,525 | Val: 26,632
+2025-11-11 12:39:49,561 - INFO - Using eager mode (torch.compile not available)
+2025-11-11 12:39:49,561 - INFO - Model parameters: 2,155,392
+2025-11-11 12:39:49,562 - INFO - Device: cuda
+2025-11-11 12:39:49,562 - INFO - Effective batch size: 1024
+2025-11-11 12:39:49,562 - INFO - GPU: NVIDIA GeForce RTX 4080
+2025-11-11 12:39:49,562 - INFO - VRAM: 16.0GB
+2025-11-11 12:39:49,562 - INFO - Starting training...
+2025-11-11 12:39:49,562 - INFO - ======================================================================
+2025-11-11 12:39:49,562 - INFO - STARTING TRAINING - RTX 4080
+2025-11-11 12:39:49,562 - INFO - Target: <4.5hrs, >90% accuracy
+2025-11-11 12:39:49,562 - INFO - ======================================================================
+2025-11-11 12:46:05,512 - INFO - System RAM: 37.0GB available / 63.8GB total
+2025-11-11 12:46:05,512 - INFO - ======================================================================
+2025-11-11 12:46:05,512 - INFO - WINDOWS-OPTIMIZED TRAINING - RTX 4080
+2025-11-11 12:46:05,512 - INFO - ======================================================================
+2025-11-11 12:46:05,513 - INFO - Batch size: 1024
+2025-11-11 12:46:05,513 - INFO - Workers: 2 (0=fastest on Windows with RAM caching)
+2025-11-11 12:46:05,513 - INFO - Learning rate: 0.0005
+2025-11-11 12:46:05,513 - INFO - Triton: False
+2025-11-11 12:46:05,513 - INFO - ======================================================================
+2025-11-11 12:46:05,513 - INFO - Initializing dataset...
+2025-11-11 12:46:05,551 - INFO - Dataset size: 4.96GB
+2025-11-11 12:46:05,551 - INFO - Available RAM: 36.91GB
+2025-11-11 12:46:05,551 - INFO - Loading dataset to RAM...
+2025-11-11 12:46:16,490 - INFO - Dataset cached in 10.9s
+2025-11-11 12:46:16,490 - INFO - Shape: (133157, 1250, 8)
+2025-11-11 12:46:16,491 - INFO - Computing normalization statistics...
+2025-11-11 12:46:20,953 - INFO - Dataset ready!
+2025-11-11 12:46:20,958 - INFO - Train: 106,525 | Val: 26,632
+2025-11-11 12:46:21,028 - INFO - Using eager mode (torch.compile not available)
+2025-11-11 12:46:21,028 - INFO - Model parameters: 2,155,392
+2025-11-11 12:46:21,028 - INFO - Device: cuda
+2025-11-11 12:46:21,028 - INFO - Effective batch size: 1024
+2025-11-11 12:46:21,029 - INFO - GPU: NVIDIA GeForce RTX 4080
+2025-11-11 12:46:21,029 - INFO - VRAM: 16.0GB
+2025-11-11 12:46:21,029 - INFO - Starting training...
+2025-11-11 12:46:21,029 - INFO - ======================================================================
+2025-11-11 12:46:21,029 - INFO - STARTING TRAINING - RTX 4080
+2025-11-11 12:46:21,029 - INFO - Target: <4.5hrs, >90% accuracy
+2025-11-11 12:46:21,029 - INFO - ======================================================================
+2025-11-11 16:32:24,669 - INFO - System RAM: 44.0GB available / 63.8GB total
+2025-11-11 16:32:24,669 - INFO - ======================================================================
+2025-11-11 16:32:24,669 - INFO - WINDOWS-OPTIMIZED TRAINING - RTX 4080
+2025-11-11 16:32:24,669 - INFO - ======================================================================
+2025-11-11 16:32:24,669 - INFO - Batch size: 256
+2025-11-11 16:32:24,669 - INFO - Workers: 0 (0=fastest on Windows with RAM caching)
+2025-11-11 16:32:24,669 - INFO - Learning rate: 0.0005
+2025-11-11 16:32:24,669 - INFO - Triton: False
+2025-11-11 16:32:24,669 - INFO - ======================================================================
+2025-11-11 16:32:24,670 - INFO - Initializing dataset...
+2025-11-11 16:32:24,707 - INFO - Dataset size: 4.96GB
+2025-11-11 16:32:24,707 - INFO - Available RAM: 43.99GB
+2025-11-11 16:32:24,707 - INFO - Loading dataset to RAM...
+2025-11-11 16:32:35,809 - INFO - Dataset cached in 11.1s
+2025-11-11 16:32:35,809 - INFO - Shape: (133157, 1250, 8)
+2025-11-11 16:32:35,809 - INFO - Computing normalization statistics...
+2025-11-11 16:32:40,314 - INFO - Dataset ready!
+2025-11-11 16:32:40,318 - INFO - Train: 106,525 | Val: 26,632
+2025-11-11 16:32:40,392 - INFO - Using eager mode (torch.compile not available)
+2025-11-11 16:32:40,392 - INFO - Model parameters: 2,155,392
+2025-11-11 16:32:40,393 - INFO - Device: cuda
+2025-11-11 16:32:40,393 - INFO - Effective batch size: 256
+2025-11-11 16:32:40,393 - INFO - GPU: NVIDIA GeForce RTX 4080
+2025-11-11 16:32:40,393 - INFO - VRAM: 16.0GB
+2025-11-11 16:32:40,393 - INFO - Starting training...
+2025-11-11 16:32:40,393 - INFO - ======================================================================
+2025-11-11 16:32:40,393 - INFO - STARTING TRAINING - RTX 4080
+2025-11-11 16:32:40,393 - INFO - Target: <2.0hrs, >90% accuracy
+2025-11-11 16:32:40,393 - INFO - ======================================================================
+2025-11-11 16:41:48,269 - INFO - System RAM: 44.0GB available / 63.8GB total
+2025-11-11 16:41:48,269 - INFO - ======================================================================
+2025-11-11 16:41:48,269 - INFO - WINDOWS-OPTIMIZED TRAINING - RTX 4080
+2025-11-11 16:41:48,269 - INFO - ======================================================================
+2025-11-11 16:41:48,269 - INFO - Batch size: 256
+2025-11-11 16:41:48,269 - INFO - Workers: 0 (0=fastest on Windows with RAM caching)
+2025-11-11 16:41:48,269 - INFO - Learning rate: 0.0005
+2025-11-11 16:41:48,269 - INFO - Triton: False
+2025-11-11 16:41:48,269 - INFO - ======================================================================
+2025-11-11 16:41:48,270 - INFO - Initializing dataset...
+2025-11-11 16:41:48,307 - INFO - Dataset size: 4.96GB
+2025-11-11 16:41:48,308 - INFO - Available RAM: 43.95GB
+2025-11-11 16:41:48,308 - INFO - Loading dataset to RAM...
+2025-11-11 16:41:59,480 - INFO - Dataset cached in 11.2s
+2025-11-11 16:41:59,481 - INFO - Shape: (133157, 1250, 8)
+2025-11-11 16:41:59,481 - INFO - Computing normalization statistics...
+2025-11-11 16:42:03,989 - INFO - Dataset ready!
+2025-11-11 16:42:03,993 - INFO - Train: 106,525 | Val: 26,632
+2025-11-11 16:42:04,060 - INFO - Using eager mode (torch.compile not available)
+2025-11-11 16:42:04,060 - INFO - Model parameters: 2,155,392
+2025-11-11 16:42:04,061 - INFO - Device: cuda
+2025-11-11 16:42:04,061 - INFO - Effective batch size: 256
+2025-11-11 16:42:04,061 - INFO - GPU: NVIDIA GeForce RTX 4080
+2025-11-11 16:42:04,061 - INFO - VRAM: 16.0GB
+2025-11-11 16:42:04,061 - INFO - Starting training...
+2025-11-11 16:42:04,061 - INFO - ======================================================================
+2025-11-11 16:42:04,061 - INFO - STARTING TRAINING - RTX 4080
+2025-11-11 16:42:04,061 - INFO - Target: <4.5hrs, >90% accuracy
+2025-11-11 16:42:04,061 - INFO - ======================================================================
+2025-11-11 16:53:23,410 - INFO - System RAM: 43.6GB available / 63.8GB total
+2025-11-11 16:53:23,410 - INFO - ======================================================================
+2025-11-11 16:53:23,410 - INFO - WINDOWS-OPTIMIZED TRAINING - RTX 4080
+2025-11-11 16:53:23,410 - INFO - ======================================================================
+2025-11-11 16:53:23,410 - INFO - Batch size: 128
+2025-11-11 16:53:23,410 - INFO - Workers: 0 (0=fastest on Windows with RAM caching)
+2025-11-11 16:53:23,410 - INFO - Learning rate: 0.0005
+2025-11-11 16:53:23,410 - INFO - Triton: False
+2025-11-11 16:53:23,410 - INFO - ======================================================================
+2025-11-11 16:53:23,410 - INFO - Initializing dataset...
+2025-11-11 16:53:23,448 - INFO - Dataset size: 4.96GB
+2025-11-11 16:53:23,448 - INFO - Available RAM: 43.56GB
+2025-11-11 16:53:23,448 - INFO - Loading dataset to RAM...
+2025-11-11 16:53:34,535 - INFO - Dataset cached in 11.1s
+2025-11-11 16:53:34,535 - INFO - Shape: (133157, 1250, 8)
+2025-11-11 16:53:34,535 - INFO - Computing normalization statistics...
+2025-11-11 16:53:39,080 - INFO - Dataset ready!
+2025-11-11 16:53:39,085 - INFO - Train: 106,525 | Val: 26,632
+2025-11-11 16:53:39,160 - INFO - Using eager mode (torch.compile not available)
+2025-11-11 16:53:39,160 - INFO - Model parameters: 2,155,392
+2025-11-11 16:53:39,160 - INFO - Device: cuda
+2025-11-11 16:53:39,160 - INFO - Effective batch size: 128
+2025-11-11 16:53:39,160 - INFO - GPU: NVIDIA GeForce RTX 4080
+2025-11-11 16:53:39,160 - INFO - VRAM: 16.0GB
+2025-11-11 16:53:39,160 - INFO - Starting training...
+2025-11-11 16:53:39,160 - INFO - ======================================================================
+2025-11-11 16:53:39,160 - INFO - STARTING TRAINING - RTX 4080
+2025-11-11 16:53:39,160 - INFO - Target: <4.5hrs, >90% accuracy
+2025-11-11 16:53:39,161 - INFO - ======================================================================
+2025-11-11 17:18:11,305 - INFO - System RAM: 43.3GB available / 63.8GB total
+2025-11-11 17:18:11,305 - INFO - ======================================================================
+2025-11-11 17:18:11,305 - INFO - WINDOWS-OPTIMIZED TRAINING - RTX 4080
+2025-11-11 17:18:11,305 - INFO - ======================================================================
+2025-11-11 17:18:11,305 - INFO - Batch size: 64
+2025-11-11 17:18:11,306 - INFO - Workers: 0 (0=fastest on Windows with RAM caching)
+2025-11-11 17:18:11,306 - INFO - Learning rate: 0.0005
+2025-11-11 17:18:11,306 - INFO - Triton: False
+2025-11-11 17:18:11,306 - INFO - ======================================================================
+2025-11-11 17:18:11,306 - INFO - Initializing dataset...
+2025-11-11 17:18:11,342 - INFO - Dataset size: 4.96GB
+2025-11-11 17:18:11,342 - INFO - Available RAM: 43.22GB
+2025-11-11 17:18:11,342 - INFO - Loading dataset to RAM...
+2025-11-11 17:18:22,185 - INFO - Dataset cached in 10.8s
+2025-11-11 17:18:22,185 - INFO - Shape: (133157, 1250, 8)
+2025-11-11 17:18:22,185 - INFO - Computing normalization statistics...
+2025-11-11 17:18:26,677 - INFO - Dataset ready!
+2025-11-11 17:18:26,682 - INFO - Train: 106,525 | Val: 26,632
+2025-11-11 17:18:26,756 - INFO - Using eager mode (torch.compile not available)
+2025-11-11 17:18:26,757 - INFO - Model parameters: 2,155,392
+2025-11-11 17:18:26,757 - INFO - Device: cuda
+2025-11-11 17:18:26,757 - INFO - Effective batch size: 64
+2025-11-11 17:18:26,757 - INFO - GPU: NVIDIA GeForce RTX 4080
+2025-11-11 17:18:26,757 - INFO - VRAM: 16.0GB
+2025-11-11 17:18:26,757 - INFO - Starting training...
+2025-11-11 17:18:26,757 - INFO - ======================================================================
+2025-11-11 17:18:26,757 - INFO - STARTING TRAINING - RTX 4080
+2025-11-11 17:18:26,757 - INFO - Target: <10.0hrs, >90% accuracy
+2025-11-11 17:18:26,757 - INFO - ======================================================================

@@ -37,28 +37,36 @@ logger = logging.getLogger(__name__)
 
 
 class ConservativeDataset(Dataset):
-    """Dataset with strong augmentation for contrastive learning"""
+    """Dataset with strong augmentation for contrastive learning - Memory efficient"""
 
     def __init__(self, h5_path, metadata_path, augment=True):
         self.augment = augment
         self.augmentation = StrongAugmentation() if augment else None
+        self.h5_path = h5_path
 
         # Load metadata
         with open(metadata_path, 'rb') as f:
             self.metadata = pickle.load(f)
 
-        # Load segments into RAM
-        logger.info(f"Loading {len(self.metadata):,} segments into RAM...")
+        # Store dataset info but use lazy loading to save RAM
         with h5py.File(h5_path, 'r') as h5f:
-            self.segments = h5f['segments'][:].astype(np.float32)
-        logger.info(f"✓ Loaded {self.segments.shape[0]:,} segments ({self.segments.nbytes / 1e9:.2f}GB)")
+            self.n_segments = h5f['segments'].shape[0]
+            self.segment_shape = h5f['segments'].shape[1:]
+
+        logger.info(f"Dataset initialized: {self.n_segments:,} segments (lazy loading)")
+
+        # Open h5 file for this worker
+        self.h5_file = None
 
     def __len__(self):
         return len(self.metadata)
 
     def __getitem__(self, idx):
-        # Load segment
-        segment = self.segments[idx]
+        # Lazy load segment from h5 file
+        if self.h5_file is None:
+            self.h5_file = h5py.File(self.h5_path, 'r')
+
+        segment = self.h5_file['segments'][idx].astype(np.float32)
         segment = torch.FloatTensor(segment).transpose(0, 1)
 
         # Normalize each channel
@@ -367,39 +375,46 @@ def main():
         logger.error("Build the dataset first using production_pipeline.py")
         return
 
-    logger.info("Loading datasets...")
-    train_dataset = ConservativeDataset(dataset_path, metadata_path, augment=True)
-    val_dataset = ConservativeDataset(dataset_path, metadata_path, augment=True)
+    logger.info("Initializing datasets...")
+    full_dataset = ConservativeDataset(dataset_path, metadata_path, augment=True)
 
     # Split
     val_split = config.get('validation_split', 0.2)
-    train_size = int((1 - val_split) * len(train_dataset))
-    val_size = len(train_dataset) - train_size
+    train_size = int((1 - val_split) * len(full_dataset))
+    val_size = len(full_dataset) - train_size
 
     train_dataset, val_dataset = torch.utils.data.random_split(
-        train_dataset, [train_size, val_size],
+        full_dataset, [train_size, val_size],
         generator=torch.Generator().manual_seed(42)  # Reproducible split
     )
 
     logger.info(f"Train: {train_size:,} segments | Val: {val_size:,} segments")
 
-    # Create loaders
+    # Multi-worker loading for better performance
+    num_workers = 6
+    logger.info(f"Using {num_workers} workers for data loading")
+
+    # Create loaders with prefetching for better GPU utilization
     train_loader = DataLoader(
         train_dataset,
-        batch_size=config['batch_size'],
+        batch_size=config['batch_size'],  # Use batch size from config
         shuffle=True,
-        num_workers=config.get('num_workers', 8),
+        num_workers=num_workers,
         pin_memory=True,
-        drop_last=True  # Stable batch sizes
+        drop_last=True,  # Stable batch sizes
+        persistent_workers=True,  # Keep workers alive
+        prefetch_factor=2  # Prefetch 2 batches per worker
     )
 
     val_loader = DataLoader(
         val_dataset,
         batch_size=config['batch_size'],
         shuffle=False,
-        num_workers=config.get('num_workers', 8),
+        num_workers=num_workers,
         pin_memory=True,
-        drop_last=False
+        drop_last=False,
+        persistent_workers=True,
+        prefetch_factor=2
     )
 
     # Train
@@ -411,3 +426,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
