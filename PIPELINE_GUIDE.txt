@@ -1,0 +1,661 @@
+================================================================================
+                    ECG/PPG ARRHYTHMIA DISCOVERY PIPELINE
+                         Complete Workflow Guide
+================================================================================
+
+PROJECT OVERVIEW
+================================================================================
+This pipeline performs unsupervised arrhythmia pattern discovery from ECG/PPG
+waveforms using contrastive learning, followed by clinical validation and
+stroke risk prediction. The system uses MIMIC-III database containing 288
+patients with 133,157 waveform segments.
+
+
+COMPLETE PIPELINE WORKFLOW
+================================================================================
+
+┌──────────────────────────────────────────────────────────────────────────┐
+│                          PHASE 1: DATA BUILDING                          │
+└──────────────────────────────────────────────────────────────────────────┘
+
+OBJECTIVE: Build preprocessed HDF5 dataset from raw MIMIC-III waveforms
+
+FILES USED:
+  ✓ production_pipeline.py              (Main orchestrator)
+  ✓ data_preprocessing.py               (WaveformPreprocessor class)
+  ✓ robust_data_preprocessing.py        (RobustWaveformPreprocessor class)
+
+COMMAND:
+  python production_pipeline.py --build-dataset --output-dir production_medium_corrected
+
+INPUTS:
+  • Raw MIMIC-III waveform files (*.dat, *.hea)
+  • Clinical data (PATIENTS.csv.gz, DIAGNOSES_ICD.csv.gz, ADMISSIONS.csv.gz)
+
+PROCESS:
+  1. Scan waveform directories for patient data
+  2. Load clinical metadata (age, gender, diagnoses)
+  3. Process each waveform:
+     - Bandpass filter (0.5-40 Hz)
+     - Resample to 125 Hz
+     - Segment into 10-second windows (1250 samples)
+     - Quality control (remove flatlines, artifacts)
+     - Normalize per channel
+  4. Extract clinical labels:
+     - Stroke (ICD-9: 430-438)
+     - Arrhythmia (ICD-9: 427)
+     - Mortality flag
+  5. Save to compressed HDF5 format
+
+OUTPUTS:
+  • production_medium_corrected/full_dataset.h5         (5.3GB - waveform data)
+  • production_medium_corrected/full_dataset_metadata.pkl (clinical metadata)
+  • production_medium_corrected/config.json             (preprocessing params)
+
+DATASET STATISTICS:
+  - Total Patients: 288
+  - Total Segments: 133,157
+  - Segment Duration: 10 seconds @ 125 Hz
+  - Channels: 8 (3 ECG-like + 5 PPG-like)
+  - Train Split: 106,525 segments (80%)
+  - Val Split: 26,632 segments (20%)
+
+
+┌──────────────────────────────────────────────────────────────────────────┐
+│                      PHASE 2: CONTRASTIVE TRAINING                       │
+└──────────────────────────────────────────────────────────────────────────┘
+
+OBJECTIVE: Train WaveformEncoder to learn meaningful representations using
+           self-supervised contrastive learning (no labels needed)
+
+FILES USED:
+  ✓ conservative_full_training_optimised.py  (Training script - RTX 4080 optimized)
+  ✓ contrastive_model.py                     (WaveformEncoder architecture)
+  ✓ corrected_contrastive_training.py        (CorrectedContrastiveLoss, augmentations)
+
+COMMAND:
+  python conservative_full_training_optimised.py
+
+INPUTS:
+  • production_medium_corrected/full_dataset.h5
+  • production_medium_corrected/full_dataset_metadata.pkl
+
+MODEL ARCHITECTURE (WaveformEncoder):
+  Input: (batch_size, 8 channels, 1250 samples)
+    ↓
+  Conv1d Block 1: 8 → 64 channels     (1250 → 625 samples)
+    ↓
+  Conv1d Block 2: 64 → 128 channels   (625 → 312 samples)
+    ↓
+  Conv1d Block 3: 128 → 256 channels  (312 → 156 samples)
+    ↓
+  Conv1d Block 4: 256 → 512 channels  (156 → 78 samples)
+    ↓
+  Global Average Pooling              (78 → 1)
+    ↓
+  Dense Layer: 512 → 256              (Projection head)
+    ↓
+  Output: (batch_size, 256) embeddings
+
+  Total Parameters: 2,155,392
+
+TRAINING STRATEGY (Contrastive Learning - SimCLR):
+  1. For each segment, create two augmented views:
+     - Gaussian noise injection
+     - Amplitude scaling (0.8-1.2x)
+     - Time shifting
+  2. Pass both views through encoder
+  3. Compute NT-Xent contrastive loss:
+     - Pull positive pairs (same segment) together
+     - Push negative pairs (different segments) apart
+  4. Temperature: 0.5 (controls separation strength)
+
+TRAINING CONFIGURATION:
+  • Batch Size: 256 (base) × 4 (accumulation) = 1024 effective
+  • Learning Rate: 3e-4 (with warmup for 5 epochs)
+  • Optimizer: AdamW (weight_decay=0.05 for regularization)
+  • Scheduler: Cosine annealing
+  • Epochs: 25 (with early stopping, patience=5)
+  • Dropout: 0.2 (prevent overfitting)
+  • Mixed Precision: AMP enabled (RTX 4080 optimization)
+  • Gradient Clipping: max_norm=1.0
+
+OUTPUTS:
+  • production_medium_corrected/checkpoint_epoch_5.pth
+  • production_medium_corrected/checkpoint_epoch_10.pth
+  • production_medium_corrected/checkpoint_epoch_15.pth
+  • production_medium_corrected/checkpoint_epoch_20.pth
+  • production_medium_corrected/checkpoint_epoch_25.pth
+  • production_medium_corrected/checkpoint_epoch_final.pth  (FINAL MODEL)
+  • production_medium_corrected/latest_checkpoint.pth
+  • conservative_training.log (training history)
+
+CHECKPOINT CONTENTS:
+  - model_state_dict: Trained WaveformEncoder weights
+  - optimizer_state_dict: AdamW state
+  - scheduler_state_dict: Learning rate scheduler state
+  - epoch: Current epoch number
+  - train_losses: Training loss history
+  - val_losses: Validation loss history
+  - config: Full training configuration
+
+
+┌──────────────────────────────────────────────────────────────────────────┐
+│                     PHASE 3: VALIDATION & TESTING                        │
+└──────────────────────────────────────────────────────────────────────────┘
+
+OBJECTIVE: Validate trained model, discover patterns, predict stroke risk
+
+─────────────────────────────────────────────────────────────────────────────
+3A. COMPREHENSIVE VALIDATION
+─────────────────────────────────────────────────────────────────────────────
+
+FILES USED:
+  ✓ comprehensive_validation.py
+  ✓ contrastive_model.py (imports trained model)
+
+COMMAND:
+  python comprehensive_validation.py
+
+INPUTS:
+  • production_medium_corrected/checkpoint_epoch_final.pth
+  • production_medium_corrected/full_dataset.h5
+  • production_medium_corrected/full_dataset_metadata.pkl
+
+VALIDATION TESTS:
+  1. Dataset integrity checks
+  2. Model architecture verification
+  3. Embedding quality metrics:
+     - Alignment (positive pairs should be close)
+     - Uniformity (embeddings spread on hypersphere)
+     - Diversity (low mean pairwise similarity)
+  4. Clinical label distribution analysis
+  5. Embedding visualization (t-SNE, PCA)
+
+OUTPUTS:
+  • Validation report (printed to console)
+  • Embedding quality scores
+  • Visualization plots (optional)
+
+─────────────────────────────────────────────────────────────────────────────
+3B. CLINICAL VALIDATION
+─────────────────────────────────────────────────────────────────────────────
+
+FILES USED:
+  ✓ clinical_validation.py
+  ✓ clinical_features.csv (patient metadata)
+
+COMMAND:
+  python clinical_validation.py
+
+INPUTS:
+  • clinical_features.csv (patient demographics, outcomes)
+  • Discovered patterns from clustering
+
+VALIDATION TESTS:
+  1. Pattern-diagnosis correlation (Chi-square tests)
+  2. Risk stratification analysis
+  3. CHA2DS2-VASc score comparison
+  4. Statistical significance testing
+  5. Clinical interpretation
+
+OUTPUTS:
+  • Clinical validation report
+  • Pattern-diagnosis associations
+  • Statistical test results
+  • Risk stratification metrics
+
+─────────────────────────────────────────────────────────────────────────────
+3C. PATTERN DISCOVERY (CLUSTERING)
+─────────────────────────────────────────────────────────────────────────────
+
+FILES USED:
+  ✓ simple_clustering.py
+  ✓ contrastive_model.py (imports trained model)
+
+COMMAND:
+  python simple_clustering.py
+
+INPUTS:
+  • production_medium_corrected/checkpoint_epoch_final.pth
+  • production_medium_corrected/full_dataset.h5
+  • production_medium_corrected/full_dataset_metadata.pkl
+
+CLUSTERING PROCESS:
+  1. Load trained WaveformEncoder
+  2. Extract embeddings for all segments:
+     - Forward pass through encoder (no gradients)
+     - Output: 133,157 × 256 embedding matrix
+  3. Dimensionality reduction:
+     - PCA to 50 dimensions (preserve variance)
+     - t-SNE to 2D (visualization)
+  4. Clustering algorithms:
+     - DBSCAN (density-based, finds arbitrary shapes)
+     - K-means (centroid-based, k=5-20 clusters)
+  5. Cluster analysis:
+     - Silhouette score (cluster quality)
+     - Clinical label enrichment per cluster
+     - Temporal pattern analysis
+
+OUTPUTS:
+  • Discovered pattern clusters
+  • Cluster assignments per segment
+  • Silhouette scores
+  • t-SNE visualizations
+  • Pattern-diagnosis associations
+
+─────────────────────────────────────────────────────────────────────────────
+3D. STROKE RISK PREDICTION
+─────────────────────────────────────────────────────────────────────────────
+
+FILES USED:
+  ✓ stroke_prediction.py
+  ✓ contrastive_model.py (imports trained model)
+  ✓ clinical_features.csv
+
+COMMAND:
+  python stroke_prediction.py
+
+INPUTS:
+  • production_medium_corrected/checkpoint_epoch_final.pth (embeddings)
+  • clinical_features.csv (clinical features)
+  • Stroke labels from metadata
+
+PREDICTION PIPELINE:
+  1. Extract embeddings using trained WaveformEncoder
+  2. Combine with clinical features:
+     - Age, gender, CHA2DS2-VASc score
+     - Hypertension, diabetes, heart disease flags
+     - Embedding features (256-dim)
+  3. Train supervised stroke classifier:
+     - Random Forest
+     - Gradient Boosting
+     - Logistic Regression
+  4. Cross-validation (5-fold stratified)
+  5. Evaluate metrics:
+     - Accuracy, Precision, Recall, F1
+     - ROC-AUC, PR-AUC
+     - Confusion matrix
+
+TARGET:
+  • Stroke prediction accuracy: >90%
+  • Early stroke risk detection
+
+OUTPUTS:
+  • Trained stroke classifier (stroke_classifier.pkl)
+  • Evaluation metrics report
+  • Feature importance analysis
+  • ROC curves, confusion matrices
+
+
+┌──────────────────────────────────────────────────────────────────────────┐
+│                    PHASE 4: REPORTING & DEPLOYMENT                       │
+└──────────────────────────────────────────────────────────────────────────┘
+
+─────────────────────────────────────────────────────────────────────────────
+4A. PUBLICATION REPORT GENERATION
+─────────────────────────────────────────────────────────────────────────────
+
+FILES USED:
+  ✓ publication_report.py
+
+COMMAND:
+  python publication_report.py
+
+INPUTS:
+  • All results from validation and testing phases
+  • Clinical validation outcomes
+  • Stroke prediction metrics
+
+REPORT SECTIONS:
+  1. Abstract
+  2. Introduction & Background
+  3. Methods:
+     - Dataset description
+     - Model architecture
+     - Training procedure
+     - Validation methods
+  4. Results:
+     - Discovery outcomes
+     - Clinical validation
+     - Stroke prediction performance
+  5. Discussion & Limitations
+  6. Conclusion
+
+OUTPUTS:
+  • analysis_report.pdf (publication-ready)
+  • Figures and tables
+  • Statistical summaries
+
+─────────────────────────────────────────────────────────────────────────────
+4B. INTERACTIVE XAI APPLICATION (FINAL DEPLOYMENT)
+─────────────────────────────────────────────────────────────────────────────
+
+FILES USED:
+  ✓ enhanced_xai_app.py
+  ✓ contrastive_model.py (loads trained model)
+
+COMMAND:
+  streamlit run enhanced_xai_app.py
+
+INPUTS:
+  • production_medium_corrected/checkpoint_epoch_final.pth
+  • production_medium_corrected/full_dataset.h5
+  • production_medium_corrected/full_dataset_metadata.pkl
+  • production_medium_corrected/config.json
+
+APPLICATION FEATURES:
+
+  1. Patient Input Mode:
+     - Generate synthetic patient (random demographics + realistic waveform)
+     - Manual patient entry (user-defined demographics)
+
+  2. AI Analysis Pipeline:
+     - Load patient ECG/PPG waveform (8 channels × 1250 samples)
+     - Extract 256-dim embedding via WaveformEncoder
+     - Compute gradient-based explanations:
+       * Temporal saliency map (which time points matter)
+       * Channel importance (which signals matter)
+       * Feature attribution (which features activated)
+     - Perform signal analysis:
+       * Heart rate estimation
+       * Heart rate variability (HRV)
+       * Irregular beat detection
+       * Abnormality detection (tachycardia, bradycardia)
+
+  3. Risk Prediction:
+     - Clinical risk (CHA2DS2-VASc score)
+     - AI-detected risk (embedding features)
+     - Age-adjusted risk
+     - Combined stroke risk score (0-100%)
+     - Risk category (Low/Moderate/High)
+
+  4. Explainable AI Visualizations:
+     - ECG/PPG waveforms with saliency overlay
+     - Channel importance bar chart
+     - Risk breakdown chart
+     - Embedding feature activation
+     - Signal analysis table
+     - Detected abnormalities list
+
+  5. PDF Report Generation:
+     - Patient information
+     - Risk assessment summary
+     - Explainable AI findings
+     - Clinical interpretation
+     - Recommendations
+     - Disclaimer
+
+  6. Pipeline Documentation Page:
+     - System overview
+     - Data building process
+     - Training architecture
+     - Model details
+     - Validation methods
+     - End-to-end pipeline diagram
+
+OUTPUTS:
+  • Interactive Streamlit web dashboard
+  • Real-time patient analysis
+  • Downloadable PDF reports
+  • Comprehensive XAI explanations
+
+USER INTERACTION:
+  1. Open app: streamlit run enhanced_xai_app.py
+  2. Navigate to "Patient Analysis" page
+  3. Generate/enter patient data
+  4. Click "Run AI Analysis with Explainability"
+  5. View comprehensive results:
+     - Risk score & category
+     - Waveform visualizations with saliency
+     - Signal analysis metrics
+     - AI model insights
+     - Clinical findings
+  6. Generate PDF report for medical records
+
+
+================================================================================
+                           CONFIGURATION FILES
+================================================================================
+
+clinical_config.json
+────────────────────────────────────────────────────────────────────────────
+Purpose: Clinical feature extraction configuration
+Contents:
+  - Stroke ICD-9 codes: 430-438
+  - Arrhythmia ICD-9 codes: 427
+  - Age calculation method
+  - CHA2DS2-VASc scoring rules
+
+production_fullconfig.json
+────────────────────────────────────────────────────────────────────────────
+Purpose: Full production training configuration
+Contents:
+  - max_patients: null (use all available)
+  - max_segments_per_patient: 10000
+  - batch_size: 64
+  - learning_rate: 3e-4
+  - num_epochs: 50
+  - embedding_dim: 256
+  - hidden_dims: [64, 128, 256, 512]
+  - temperature: 0.1
+  - chunk_size: 500
+
+clinical_features.csv
+────────────────────────────────────────────────────────────────────────────
+Purpose: Patient-level clinical metadata
+Columns:
+  - patient_id
+  - age, gender
+  - has_stroke, has_arrhythmia, mortality
+  - num_diagnoses
+  - chadsvasc_score
+
+requirements.txt
+────────────────────────────────────────────────────────────────────────────
+Purpose: Python dependencies
+Key packages:
+  - torch (PyTorch for deep learning)
+  - numpy, pandas (data manipulation)
+  - h5py (HDF5 file handling)
+  - wfdb (MIMIC waveform reading)
+  - streamlit (web app framework)
+  - scikit-learn (ML algorithms)
+  - matplotlib, seaborn, plotly (visualization)
+  - reportlab (PDF generation)
+
+
+================================================================================
+                           DEPLOYMENT SCRIPTS
+================================================================================
+
+run_production.sh
+────────────────────────────────────────────────────────────────────────────
+Purpose: Automated production pipeline execution
+Usage:
+  ./run_production.sh medium    # Build + train on 100 patients
+  ./run_production.sh full      # Build + train on all 288 patients
+
+Steps:
+  1. Activate conda environment
+  2. Build dataset (if not exists)
+  3. Train model with optimal settings
+  4. Run validation
+  5. Generate reports
+
+run_production_rtx4080.sh
+────────────────────────────────────────────────────────────────────────────
+Purpose: RTX 4080 GPU-optimized training
+Features:
+  - Mixed precision (AMP)
+  - Gradient accumulation (effective batch size 1024)
+  - Multi-worker data loading (6 workers)
+  - Memory-efficient settings
+
+
+================================================================================
+                         DATA FLOW SUMMARY
+================================================================================
+
+RAW DATA
+   ↓
+[production_pipeline.py] → Loads raw MIMIC waveforms
+   ↓                        Calls: data_preprocessing.py
+   ↓                               robust_data_preprocessing.py
+   ↓
+HDF5 DATASET (full_dataset.h5 + metadata.pkl)
+   ↓
+[conservative_full_training_optimised.py] → Trains WaveformEncoder
+   ↓                                         Uses: contrastive_model.py
+   ↓                                               corrected_contrastive_training.py
+   ↓
+TRAINED MODEL (checkpoint_epoch_final.pth)
+   ↓
+   ├──→ [comprehensive_validation.py] → Quality metrics
+   ├──→ [clinical_validation.py] → Clinical correlation
+   ├──→ [simple_clustering.py] → Pattern discovery
+   └──→ [stroke_prediction.py] → Risk prediction
+   ↓
+VALIDATION RESULTS
+   ↓
+   ├──→ [publication_report.py] → Research paper (PDF)
+   └──→ [enhanced_xai_app.py] → Interactive deployment
+                                  (Streamlit dashboard)
+
+
+================================================================================
+                         KEY TECHNICAL DETAILS
+================================================================================
+
+MODEL CAPABILITIES
+────────────────────────────────────────────────────────────────────────────
+✓ Unsupervised learning (no labels needed for training)
+✓ Learns meaningful waveform representations (256-dim embeddings)
+✓ Handles variable channel counts (ECG + PPG)
+✓ Robust to noise and artifacts
+✓ Generalizes to unseen patients
+
+EXPLAINABILITY FEATURES
+────────────────────────────────────────────────────────────────────────────
+✓ Gradient-based saliency (which time points are critical)
+✓ Channel importance (which signals matter most)
+✓ Feature attribution (what the model learned)
+✓ Signal-level analysis (HR, HRV, irregularities)
+✓ Clinical risk decomposition (AI + clinical factors)
+
+CLINICAL INTEGRATION
+────────────────────────────────────────────────────────────────────────────
+✓ CHA2DS2-VASc score calculation
+✓ ICD-9 code extraction (stroke, arrhythmia)
+✓ Age-adjusted risk factors
+✓ Comorbidity consideration
+✓ Evidence-based recommendations
+
+PERFORMANCE TARGETS
+────────────────────────────────────────────────────────────────────────────
+✓ Stroke prediction accuracy: >90%
+✓ Pattern discovery: statistically significant clusters
+✓ Clinical validation: p-values <0.05
+✓ Embedding quality: high uniformity, low within-cluster variance
+
+
+================================================================================
+                         QUICK START GUIDE
+================================================================================
+
+STEP 1: Build Dataset
+────────────────────────────────────────────────────────────────────────────
+python production_pipeline.py --build-dataset --output-dir production_medium_corrected
+
+Expected time: ~30-60 minutes
+Output: 5.3GB HDF5 dataset with 133,157 segments
+
+STEP 2: Train Model
+────────────────────────────────────────────────────────────────────────────
+python conservative_full_training_optimised.py
+
+Expected time: ~8-12 hours (25 epochs on RTX 4080)
+Output: checkpoint_epoch_final.pth (trained WaveformEncoder)
+
+STEP 3: Validate & Test
+────────────────────────────────────────────────────────────────────────────
+python comprehensive_validation.py
+python clinical_validation.py
+python simple_clustering.py
+python stroke_prediction.py
+
+Expected time: ~1-2 hours total
+Output: Validation reports, discovered patterns, stroke classifier
+
+STEP 4: Deploy Application
+────────────────────────────────────────────────────────────────────────────
+streamlit run enhanced_xai_app.py
+
+Opens browser at: http://localhost:8501
+Interactive dashboard with real-time analysis and PDF reports
+
+
+================================================================================
+                              TROUBLESHOOTING
+================================================================================
+
+ISSUE: Out of memory during training
+FIX: Reduce batch_size in conservative_full_training_optimised.py
+     Or increase accumulation_steps
+
+ISSUE: NaN loss during training
+FIX: Check data quality flags in preprocessing
+     Reduce learning rate
+     Check for corrupted segments
+
+ISSUE: Streamlit app won't load model
+FIX: Ensure checkpoint path matches in enhanced_xai_app.py:
+     Default: production_medium/checkpoint_epoch_final.pth
+     Update to: production_medium_corrected/checkpoint_epoch_final.pth
+
+ISSUE: Missing dependencies
+FIX: pip install -r requirements.txt
+     Ensure CUDA toolkit installed for GPU training
+
+
+================================================================================
+                           FILE DEPENDENCIES MAP
+================================================================================
+
+contrastive_model.py (WaveformEncoder)
+  ↑ IMPORTED BY:
+  ├── conservative_full_training_optimised.py (training)
+  ├── comprehensive_validation.py (validation)
+  ├── simple_clustering.py (pattern discovery)
+  ├── stroke_prediction.py (stroke prediction)
+  └── enhanced_xai_app.py (deployment)
+
+corrected_contrastive_training.py (Loss & Augmentations)
+  ↑ IMPORTED BY:
+  └── conservative_full_training_optimised.py (training)
+
+data_preprocessing.py (WaveformPreprocessor)
+  ↑ IMPORTED BY:
+  └── production_pipeline.py (dataset building)
+
+robust_data_preprocessing.py (RobustWaveformPreprocessor)
+  ↑ IMPORTED BY:
+  └── production_pipeline.py (dataset building)
+
+clinical_features.csv (Patient metadata)
+  ↑ USED BY:
+  ├── clinical_validation.py
+  └── stroke_prediction.py
+
+
+================================================================================
+                              END OF GUIDE
+================================================================================
+
+For questions or issues, refer to:
+  - README.md (general project overview)
+  - README_production.md (production pipeline specifics)
+  - conservative_training.log (training history)
+
+Last updated: 2025-11-26
+Pipeline version: Production v1.0
